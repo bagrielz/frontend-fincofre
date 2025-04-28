@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  /* Primitive colors */
+  --color-white: #ffffff;
+  --color-black: #09090b;
+
+  --color-gray-100: #f6f7f8;
+  --color-gray-200: #d8dde4;
+  --color-gray-300: #6a7585;
+
+  --color-dark-100: #334155;
+  --color-dark-200: #0f172a;
+  --color-dark-300: #09090b;
+
+  /* Auxiliary colors */
+  --color-blue: #2d7dd4;
+  --color-red: #a93d4a;
+  --color-yellow: #d8932c;
+  --color-green: #2ca067;
+
+  /* Utility variables */
+  --opacity-50: 0.5;
+}
