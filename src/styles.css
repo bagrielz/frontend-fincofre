@@ -1,7 +1,6 @@
 :root {
   /* Primitive colors */
-  --color-white: #ffffff;
-  --color-black: #09090b;
+  --color-light: #ffffff;
 
   --color-gray-100: #f6f7f8;
   --color-gray-200: #d8dde4;
@@ -17,6 +16,19 @@
   --color-yellow: #d8932c;
   --color-green: #2ca067;
 
+  /* Typography */
+  --font-body: "Inter", sans-serif;
+  --font-size-lg: 1.25rem;
+  --font-size-sm: 0.875rem;
+  --font-semibold: 600;
+  --font-medium: 500;
+
   /* Utility variables */
   --opacity-50: 0.5;
+  --w-container: 67.75rem;
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
 }
