@@ -31,4 +31,5 @@
 body {
   width: 100%;
   margin: 0 auto;
+  color: var(--color-dark-300);
 }

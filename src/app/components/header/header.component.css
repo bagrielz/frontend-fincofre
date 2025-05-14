@@ -6,3 +6,21 @@
   display: flex;
   justify-content: space-between;
 }
+
+.user-options {
+  display: flex;
+  align-items: center;
+}
+
+.btn-log-out {
+  padding-right: 1.5rem;
+  border-right: 1px solid var(--color-gray-200);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  padding-left: 1.5rem;
+}
