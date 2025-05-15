@@ -1,0 +1,10 @@
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+}
