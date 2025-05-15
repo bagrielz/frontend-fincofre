@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { TitleComponent } from '../title/title.component';
-import { ButtonComponent } from '../../button/button.component';
+import { PrimaryButtonComponent } from '../../shared/primary-button/primary-button.component';
 
 @Component({
   selector: 'app-table',
-  imports: [TitleComponent, ButtonComponent],
+  imports: [TitleComponent, PrimaryButtonComponent],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css',
 })
