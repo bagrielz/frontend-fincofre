@@ -1,14 +1,9 @@
 .main-container {
+  width: 100%;
+
   font-family: var(--font-body);
   font-weight: var(--font-semibold);
   font-size: var(--font-size-sm);
-}
 
-.header-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-  background: var(--color-light);
-  border-bottom: 1px solid var(--color-gray-200);
+  background: var(--color-gray-100);
 }
