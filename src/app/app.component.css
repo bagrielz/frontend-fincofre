@@ -1,13 +1,19 @@
+.flex {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .main-container {
   font-family: var(--font-body);
   font-weight: var(--font-semibold);
   font-size: var(--font-size-sm);
+
+  background: var(--color-gray-100);
 }
 
 .header-container {
   width: 100%;
-  display: flex;
-  justify-content: center;
 
   background: var(--color-light);
   border-bottom: 1px solid var(--color-gray-200);
