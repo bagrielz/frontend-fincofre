@@ -8,6 +8,15 @@
   </div>
 
   <table class="table-spents">
-    <thead></thead>
+    <thead>
+      <tr>
+        @for (column of columns; track $index) {
+        <th>
+          <img [src]="column.image" alt="" />
+          {{ column.field }}
+        </th>
+        }
+      </tr>
+    </thead>
   </table>
 </div>
