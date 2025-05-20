@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { TableContainerComponent } from './table-container/table-container.component';
+import { TableComponent } from './table/table.component';
 import { TitleComponent } from './title/title.component';
 import { PrimaryButtonComponent } from '../shared/primary-button/primary-button.component';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [TableContainerComponent, TitleComponent, PrimaryButtonComponent],
+  imports: [TableComponent, TitleComponent, PrimaryButtonComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
