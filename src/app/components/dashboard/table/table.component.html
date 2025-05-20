@@ -10,6 +10,10 @@
   <table class="table-spents">
     <thead>
       <tr>
+        <th>
+          <app-checkbox />
+        </th>
+
         @for (column of columns; track $index) {
         <th>
           <img [src]="column.image" alt="" />

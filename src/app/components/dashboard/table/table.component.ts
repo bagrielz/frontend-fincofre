@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { SecondaryButtonComponent } from '../../shared/secondary-button/secondary-button.component';
 import { TabsComponent } from '../tabs/tabs.component';
+import { CheckboxComponent } from '../../shared/checkbox/checkbox.component';
 
 @Component({
   selector: 'app-table',
-  imports: [TabsComponent, SecondaryButtonComponent],
+  imports: [TabsComponent, SecondaryButtonComponent, CheckboxComponent],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css',
 })
