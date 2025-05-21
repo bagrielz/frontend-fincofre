@@ -11,3 +11,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.custom-table {
+  margin-top: 1.5rem;
+}
