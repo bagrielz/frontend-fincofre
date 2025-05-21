@@ -3,6 +3,7 @@ import { SecondaryButtonComponent } from '../../shared/secondary-button/secondar
 import { TabsComponent } from '../tabs/tabs.component';
 import { TableHeadComponent } from './table-head/table-head.component';
 import { TableBodyComponent } from './table-body/table-body.component';
+import { TableFooterComponent } from './table-footer/table-footer.component';
 
 @Component({
   selector: 'app-table',
@@ -11,6 +12,7 @@ import { TableBodyComponent } from './table-body/table-body.component';
     SecondaryButtonComponent,
     TableHeadComponent,
     TableBodyComponent,
+    TableFooterComponent,
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css',
