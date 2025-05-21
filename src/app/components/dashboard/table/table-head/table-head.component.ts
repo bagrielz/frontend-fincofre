@@ -16,6 +16,6 @@ export class TableHeadComponent {
     { field: 'Categoria', image: 'icons/list.svg' },
     { field: 'Conta', image: 'icons/piggy-bank.svg' },
     { field: 'Tipo', image: 'icons/banknote.svg' },
-    { field: 'Forma', image: 'icons/credit-card.svg' },
+    { field: 'Método', image: 'icons/credit-card.svg' },
   ];
 }
