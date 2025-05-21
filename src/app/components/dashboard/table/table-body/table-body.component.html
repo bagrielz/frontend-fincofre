@@ -1,0 +1,12 @@
+<div role="rowgroup">
+  <div role="row" class="table-row">
+    <div role="columnheader">
+      <app-checkbox />
+    </div>
+    @for (d of data; track $index) {
+    <div class="cell" role="columnheader">
+      {{ d }}
+    </div>
+    }
+  </div>
+</div>

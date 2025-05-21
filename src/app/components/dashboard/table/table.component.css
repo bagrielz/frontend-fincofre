@@ -11,3 +11,9 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.custom-table {
+  margin-top: 1.5rem;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 6px;
+}
