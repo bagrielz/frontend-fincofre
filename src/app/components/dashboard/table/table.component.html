@@ -8,18 +8,6 @@
   </div>
 
   <div role="table" class="spents-table">
-    <div role="rowgroup" class="table-head">
-      <div role="row" class="row">
-        <app-checkbox />
-        <div class="attributes">
-          @for (column of columns; track $index) {
-          <div role="columnheader">
-            <img [src]="column.image" alt="" />
-            {{ column.field }}
-          </div>
-          }
-        </div>
-      </div>
-    </div>
+    <app-table-head />
   </div>
 </div>

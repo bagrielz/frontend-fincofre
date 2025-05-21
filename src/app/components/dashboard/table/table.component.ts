@@ -1,23 +1,12 @@
 import { Component } from '@angular/core';
 import { SecondaryButtonComponent } from '../../shared/secondary-button/secondary-button.component';
 import { TabsComponent } from '../tabs/tabs.component';
-import { CheckboxComponent } from '../../shared/checkbox/checkbox.component';
+import { TableHeadComponent } from './table-head/table-head.component';
 
 @Component({
   selector: 'app-table',
-  imports: [TabsComponent, SecondaryButtonComponent, CheckboxComponent],
+  imports: [TabsComponent, SecondaryButtonComponent, TableHeadComponent],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css',
 })
-export class TableComponent {
-  columns = [
-    { field: 'Data', image: 'icons/calendar.svg' },
-    { field: 'Gasto', image: 'icons/arrow-down-circle.svg' },
-    { field: 'Status', image: 'icons/loader.svg' },
-    { field: 'Valor', image: 'icons/shopping-cart.svg' },
-    { field: 'Categoria', image: 'icons/list.svg' },
-    { field: 'Conta', image: 'icons/piggy-bank.svg' },
-    { field: 'Tipo', image: 'icons/banknote.svg' },
-    { field: 'Forma', image: 'icons/credit-card.svg' },
-  ];
-}
+export class TableComponent {}
