@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SecondaryButtonComponent } from '../../shared/secondary-button/secondary-button.component';
+import { SecondaryButtonComponent } from '../../shared/button/secondary-button/secondary-button.component';
 import { TabsComponent } from '../tabs/tabs.component';
 import { TableHeadComponent } from './table-head/table-head.component';
 import { TableBodyComponent } from './table-body/table-body.component';

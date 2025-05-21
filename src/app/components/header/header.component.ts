@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SecondaryButtonComponent } from '../shared/secondary-button/secondary-button.component';
+import { SecondaryButtonComponent } from '../shared/button/secondary-button/secondary-button.component';
 
 @Component({
   selector: 'app-header',

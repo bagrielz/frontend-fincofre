@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonComponent } from '../button/button.component';
+import { ButtonComponent } from '../button.component';
 
 @Component({
   selector: 'app-secondary-button',

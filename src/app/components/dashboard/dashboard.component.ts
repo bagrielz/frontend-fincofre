@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TableComponent } from './table/table.component';
 import { TitleComponent } from './title/title.component';
-import { PrimaryButtonComponent } from '../shared/primary-button/primary-button.component';
+import { PrimaryButtonComponent } from '../shared/button/primary-button/primary-button.component';
 
 @Component({
   selector: 'app-dashboard',
