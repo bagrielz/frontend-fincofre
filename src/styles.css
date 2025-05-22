@@ -12,7 +12,10 @@
 
   /* Auxiliary colors */
   --color-blue: #2d7dd4;
-  --color-red: #a93d4a;
+
+  --color-red-100: #a93d4a;
+  --color-red-200: #b93645;
+
   --color-yellow: #d8932c;
   --color-green: #2ca067;
 

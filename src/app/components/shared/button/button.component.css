@@ -29,3 +29,14 @@
 .secondary:hover {
   background: var(--color-gray-100);
 }
+
+.danger {
+  background: var(--color-red-100);
+  color: var(--color-light);
+  border-color: var(--color-red-100);
+}
+
+.danger:hover {
+  background: var(--color-red-200);
+  border-color: var(--color-red-200);
+}
