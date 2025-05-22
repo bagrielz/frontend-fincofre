@@ -1,0 +1,22 @@
+.toast {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: var(--color-dark-300);
+  padding: 1rem 1rem;
+
+  color: var(--color-light);
+  border-radius: 0.625rem;
+}
+
+.toast > div {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.75rem;
+}
