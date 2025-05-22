@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SecondaryButtonComponent } from './secondary-button.component';
+import { ToastComponent } from './toast.component';
 
-describe('SecondaryButtonComponent', () => {
-  let component: SecondaryButtonComponent;
-  let fixture: ComponentFixture<SecondaryButtonComponent>;
+describe('ToastComponent', () => {
+  let component: ToastComponent;
+  let fixture: ComponentFixture<ToastComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SecondaryButtonComponent]
+      imports: [ToastComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SecondaryButtonComponent);
+    fixture = TestBed.createComponent(ToastComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

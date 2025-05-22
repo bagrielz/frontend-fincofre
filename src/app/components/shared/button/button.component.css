@@ -19,13 +19,24 @@
 }
 
 .primary:hover {
-  background: rgba(9, 9, 11, 0.98);
+  background: var(--color-dark-200);
 }
 
 .secondary {
-  background: var(--color-white);
+  background: var(--color-light);
 }
 
 .secondary:hover {
-  background: rgba(216, 221, 228, 0.2);
+  background: var(--color-gray-100);
+}
+
+.danger {
+  background: var(--color-red-100);
+  color: var(--color-light);
+  border-color: var(--color-red-100);
+}
+
+.danger:hover {
+  background: var(--color-red-200);
+  border-color: var(--color-red-200);
 }

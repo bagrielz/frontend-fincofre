@@ -1,0 +1,11 @@
+.table-row {
+  display: flex;
+  justify-content: center;
+
+  border-top: 1px solid var(--color-gray-200);
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+
+  color: var(--color-gray-300);
+  font-weight: var(--font-medium);
+}
