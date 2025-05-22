@@ -6,4 +6,5 @@
 
 .dashboard-content {
   width: var(--w-container);
+  position: relative;
 }
