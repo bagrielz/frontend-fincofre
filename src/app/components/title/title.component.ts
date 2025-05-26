@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, input } from '@angular/core';
+
+type Value = {
+  text: string;
+  highlight: string;
+};
 
 @Component({
   selector: 'app-title',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './title.component.html',
-  styleUrl: './title.component.css'
+  styleUrl: './title.component.css',
 })
 export class TitleComponent {
-
+  value = input.required<Value>();
 }
