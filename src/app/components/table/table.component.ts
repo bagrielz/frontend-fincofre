@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { TabsComponent } from '../tabs/tabs.component';
+import { TabsComponent } from '../shared/tabs/tabs.component';
 import { TableHeadComponent } from './table-head/table-head.component';
 import { TableBodyComponent } from './table-body/table-body.component';
 import { TableFooterComponent } from './table-footer/table-footer.component';
-import { ButtonComponent } from '../../shared/button/button.component';
+import { ButtonComponent } from '../shared/button/button.component';
 
 @Component({
   selector: 'app-table',

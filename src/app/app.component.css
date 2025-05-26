@@ -1,4 +1,4 @@
-.main-container {
+.container {
   width: 100%;
 
   font-family: var(--font-body);
@@ -6,4 +6,15 @@
   font-size: var(--font-size-sm);
 
   background: var(--color-gray-100);
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.main-content {
+  width: var(--w-container);
+  position: relative;
 }
