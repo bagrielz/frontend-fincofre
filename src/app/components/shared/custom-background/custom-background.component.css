@@ -1,7 +1,0 @@
-.custom-background {
-  background: var(--color-light);
-  padding: 0.625rem;
-
-  border: 1px solid var(--color-gray-200);
-  border-radius: 0.625rem;
-}
