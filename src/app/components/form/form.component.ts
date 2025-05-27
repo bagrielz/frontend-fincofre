@@ -1,5 +1,4 @@
 import { Component, input } from '@angular/core';
-import { CustomBackgroundComponent } from '../shared/custom-background/custom-background.component';
 
 type Value = {
   subtitle: string;
@@ -8,7 +7,7 @@ type Value = {
 
 @Component({
   selector: 'app-form',
-  imports: [CustomBackgroundComponent],
+  imports: [],
   templateUrl: './form.component.html',
   styleUrl: './form.component.css',
 })

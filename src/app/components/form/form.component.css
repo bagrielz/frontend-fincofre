@@ -3,8 +3,12 @@
   justify-content: center;
 }
 
-.form-container div {
-  padding: 0.875rem;
+.custom-background {
+  background: var(--color-light);
+  padding: 1.5rem;
+
+  border: 1px solid var(--color-gray-200);
+  border-radius: 0.625rem;
 }
 
 .subtitle {
