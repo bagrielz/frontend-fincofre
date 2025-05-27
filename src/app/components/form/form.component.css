@@ -2,3 +2,19 @@
   display: flex;
   justify-content: center;
 }
+
+.form-container div {
+  padding: 0.875rem;
+}
+
+.subtitle {
+  font-size: var(--font-size-base);
+  margin-bottom: 0.625rem;
+}
+
+.form-container p {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-300);
+  font-weight: var(--font-regular);
+  margin-bottom: 2rem;
+}
