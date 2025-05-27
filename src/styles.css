@@ -31,6 +31,7 @@
   /* Utility variables */
   --opacity-50: 0.5;
   --w-container: 67.75rem;
+  --w-form-content: 24.25rem;
 }
 
 body {
