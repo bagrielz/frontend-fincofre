@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { FormComponent } from '../../components/form/form.component';
+import { FormContainerComponent } from '../../components/form-container/form-container.component';
 import { TitleComponent } from '../../components/title/title.component';
 
 @Component({
   selector: 'app-add-spent-form',
-  imports: [FormComponent, TitleComponent],
+  imports: [FormContainerComponent, TitleComponent],
   templateUrl: './add-spent-form.component.html',
   styleUrl: './add-spent-form.component.css',
 })

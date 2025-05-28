@@ -8,9 +8,9 @@ type Value = {
 @Component({
   selector: 'app-form',
   imports: [],
-  templateUrl: './form.component.html',
-  styleUrl: './form.component.css',
+  templateUrl: './form-container.component.html',
+  styleUrl: './form-container.component.css',
 })
-export class FormComponent {
+export class FormContainerComponent {
   value = input.required<Value>();
 }
