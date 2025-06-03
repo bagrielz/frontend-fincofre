@@ -7,7 +7,7 @@ import { AddSpentFormComponent } from './features/add-spent-form/pages/add-spent
 
 const MODULES = [RouterOutlet, ReactiveFormsModule];
 
-const COMPONENTS = [HeaderComponent, DashboardComponent, AddSpentFormComponent];
+const COMPONENTS = [HeaderComponent];
 
 @Component({
   selector: 'app-root',
