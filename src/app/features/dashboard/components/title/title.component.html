@@ -1,4 +1,9 @@
 <div class="title-container">
-  <h1 class="title">Despesas</h1>
+  <h1 class="title">
+    {{ value().title }}
+    @if (value().highlight.trim()) {
+    <span class="highlight">{{ value().highlight }}</span>
+    }
+  </h1>
   <ng-content />
 </div>
