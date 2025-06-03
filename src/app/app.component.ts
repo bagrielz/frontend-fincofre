@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from './components/header/header.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HeaderComponent } from './features/header/pages/header.component';
+import { DashboardComponent } from './features/dashboard/pages/dashboard.component';
 
 @Component({
   selector: 'app-root',

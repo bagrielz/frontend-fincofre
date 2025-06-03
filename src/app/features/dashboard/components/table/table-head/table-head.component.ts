@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CheckboxComponent } from '../../../shared/checkbox/checkbox.component';
+import { CheckboxComponent } from '../../../../../shared/components/checkbox/checkbox.component';
 
 @Component({
   selector: 'app-table-head',
