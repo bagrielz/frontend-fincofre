@@ -5,5 +5,6 @@ export interface FormFieldBase {
   required?: boolean;
   placeholder?: string;
   icon?: string;
+  validators?: any[];
   width?: 'full' | 'half';
 }
