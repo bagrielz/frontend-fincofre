@@ -3,6 +3,7 @@ export interface FormFieldBase {
   formControlName: string;
   type: string;
   required?: boolean;
+  errorMessages?: { [key: string]: string };
   placeholder?: string;
   icon?: string;
   validators?: any[];

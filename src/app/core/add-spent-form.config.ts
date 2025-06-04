@@ -1,0 +1,24 @@
+import { Validators } from '@angular/forms';
+import { FormConfig } from '../shared/models/form-config.interface';
+
+export function getAddSpentFormConfig(): FormConfig {
+  return {
+    title: 'Gastos >',
+    highlight: 'Adicionar gasto',
+    subtitle: 'Novo gasto',
+    description: 'Adicione um novo gasto preenchendo todos os campos abaixo.',
+    fields: [
+      {
+        label: 'Nome do gasto',
+        formControlName: 'spent',
+        type: 'text',
+        required: true,
+        errorMessages: {
+          required: 'Nome do gasto é um campo obrigatório',
+        },
+        validators: [Validators.required],
+        width: 'full',
+      },
+    ],
+  };
+}
