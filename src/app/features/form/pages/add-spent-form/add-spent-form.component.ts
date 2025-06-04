@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { TitleComponent } from '../../dashboard/components/title/title.component';
-import { FormComponent } from '../../../shared/components/form/form.component';
+import { TitleComponent } from '../../../dashboard/components/title/title.component';
+import { FormComponent } from '../../../../shared/components/form/form.component';
 
 @Component({
   selector: 'app-add-spent-form',

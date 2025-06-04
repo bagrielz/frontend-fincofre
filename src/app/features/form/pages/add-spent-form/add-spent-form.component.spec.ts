@@ -8,9 +8,8 @@ describe('AddSpentFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddSpentFormComponent]
-    })
-    .compileComponents();
+      imports: [AddSpentFormComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AddSpentFormComponent);
     component = fixture.componentInstance;
