@@ -3,12 +3,12 @@ import { TitleComponent } from '../../../dashboard/components/title/title.compon
 import { FormConfig } from '../../../../shared/models/form-config.interface';
 import { DynamicFormService } from '../../services/dynamic-form.service';
 import { getAddSpentFormConfig } from '../../../../core/add-spent-form.config';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormFieldBase } from '../../../../shared/models/form-field-base.interface';
 
 @Component({
   selector: 'app-add-spent-form',
-  imports: [TitleComponent],
+  imports: [TitleComponent, ReactiveFormsModule],
   templateUrl: './add-spent-form.component.html',
   styleUrl: './add-spent-form.component.css',
 })

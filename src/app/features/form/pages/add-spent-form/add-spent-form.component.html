@@ -1,2 +1,27 @@
-<app-title [value]="{ title: 'Gastos > ', highlight: 'Adicionar gasto' }" />
-<app-form />
+<app-title
+  [value]="{ title: formConfig.title, highlight: formConfig.highlight }"
+/>
+<div class="form-container">
+  <h2 class="subtitle">{{ formConfig.subtitle }}</h2>
+  <p>{{ formConfig.description }}</p>
+
+  <form class="form" [formGroup]="addSpentForm">
+    @for (field of formConfig.fields; track $index) {
+    <div class="field">
+      <label for="label-form">{{ field.label }}</label>
+      <div class="custom-input">
+        <input
+          [id]="field.formControlName"
+          [type]="field.type"
+          class="input-form"
+          [formControlName]="field.formControlName"
+          [placeholder]="field.placeholder || ''"
+        />
+        @if (field.icon?.trim()) {
+        <img [src]="field.icon" alt="" />
+        }
+      </div>
+    </div>
+    }
+  </form>
+</div>

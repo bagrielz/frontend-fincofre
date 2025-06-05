@@ -16,6 +16,7 @@ export function getAddSpentFormConfig(): FormConfig {
         errorMessages: {
           required: 'Nome do gasto é um campo obrigatório',
         },
+        placeholder: 'Escolha um nome para o gasto',
         validators: [Validators.required],
         width: 'full',
       },
