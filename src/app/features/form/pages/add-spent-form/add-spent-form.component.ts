@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { TitleComponent } from '../../../dashboard/components/title/title.component';
 import { FormConfig } from '../../../../shared/models/form-config.interface';
 import { DynamicFormService } from '../../services/dynamic-form.service';
