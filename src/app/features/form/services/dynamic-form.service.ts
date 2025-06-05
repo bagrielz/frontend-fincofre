@@ -10,7 +10,7 @@ export class DynamicFormService {
 
   constructor(private fb: FormBuilder) {}
 
-  registerFormConfig(formName: string, config: Function) {
+  registerFormConfig(formName: string, config: Function): void {
     this.formConfigs[formName] = config;
   }
 
