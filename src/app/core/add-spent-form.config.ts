@@ -20,6 +20,19 @@ export function getAddSpentFormConfig(): FormConfig {
         validators: [Validators.required],
         width: 'full',
       },
+      {
+        label: 'Data',
+        formControlName: 'date',
+        type: 'date',
+        required: true,
+        errorMessages: {
+          required: 'Data é um campo obrigatório',
+        },
+        placeholder: 'Selecione a data',
+        icon: 'icons/calendar.svg',
+        validators: [Validators.required],
+        width: 'full',
+      },
     ],
   };
 }

@@ -18,7 +18,11 @@
           [placeholder]="field.placeholder || ''"
         />
         @if (field.icon?.trim()) {
-        <img [src]="field.icon" alt="" />
+        <img
+          [ngClass]="field.type === 'date' ? 'custom-date' : ''"
+          [src]="field.icon"
+          alt=""
+        />
         }
       </div>
     </div>
