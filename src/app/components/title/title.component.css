@@ -1,0 +1,19 @@
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+}
+
+.title.with-highlight {
+  color: var(--color-gray-300);
+}
+
+.highlight {
+  color: var(--color-dark-300);
+}

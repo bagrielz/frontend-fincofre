@@ -1,0 +1,9 @@
+@for (tab of tabs; track $index) {
+<button
+  class="tab"
+  (click)="selectTab($index)"
+  [ngClass]="{ selected: selectedTab === $index }"
+>
+  {{ tab }}
+</button>
+}

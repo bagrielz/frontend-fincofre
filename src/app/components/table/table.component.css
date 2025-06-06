@@ -1,0 +1,19 @@
+.custom-background {
+  background: var(--color-light);
+  padding: 0.625rem;
+
+  border: 1px solid var(--color-gray-200);
+  border-radius: 0.625rem;
+}
+
+.table-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-table {
+  margin-top: 1.5rem;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 6px;
+}
