@@ -7,10 +7,17 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormFieldBase } from '../../../../shared/models/form-field-base.interface';
 import { CommonModule } from '@angular/common';
 import { FieldComponent } from '../../components/field/field.component';
+import { FormContainerComponent } from '../../components/form-container/form-container.component';
 
 @Component({
   selector: 'app-add-spent-form',
-  imports: [FieldComponent, TitleComponent, ReactiveFormsModule, CommonModule],
+  imports: [
+    FieldComponent,
+    TitleComponent,
+    ReactiveFormsModule,
+    CommonModule,
+    FormContainerComponent,
+  ],
   templateUrl: './add-spent-form.component.html',
   styleUrl: './add-spent-form.component.css',
 })
