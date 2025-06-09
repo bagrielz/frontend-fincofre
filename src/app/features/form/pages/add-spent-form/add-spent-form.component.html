@@ -6,26 +6,6 @@
   <p>{{ formConfig.description }}</p>
 
   <form class="form" [formGroup]="addSpentForm">
-    @for (field of formConfig.fields; track $index) {
-    <div class="field">
-      <label for="label-form">{{ field.label }}</label>
-      <div class="custom-input">
-        <input
-          [id]="field.formControlName"
-          [type]="field.type"
-          class="input-form"
-          [formControlName]="field.formControlName"
-          [placeholder]="field.placeholder || ''"
-        />
-        @if (field.icon?.trim()) {
-        <img
-          [ngClass]="field.type === 'date' ? 'custom-date' : ''"
-          [src]="field.icon"
-          alt=""
-        />
-        }
-      </div>
-    </div>
-    }
+    <app-field [form]="addSpentForm" [fields]="formConfig.fields" />
   </form>
 </div>
