@@ -1,0 +1,13 @@
+.subtitle {
+  font-size: var(--font-size-base);
+  margin-bottom: 0.625rem;
+}
+
+.description {
+  color: var(--color-gray-300);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-regular);
+
+  line-height: 133%;
+  margin-bottom: 2rem;
+}
