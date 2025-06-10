@@ -8,6 +8,7 @@ import { FormFieldBase } from '../../../../shared/models/form-field-base.interfa
 import { CommonModule } from '@angular/common';
 import { FieldComponent } from '../../components/field/field.component';
 import { FormContainerComponent } from '../../components/form-container/form-container.component';
+import { SubtitleComponent } from '../../components/subtitle/subtitle.component';
 
 @Component({
   selector: 'app-add-spent-form',
@@ -17,6 +18,7 @@ import { FormContainerComponent } from '../../components/form-container/form-con
     ReactiveFormsModule,
     CommonModule,
     FormContainerComponent,
+    SubtitleComponent,
   ],
   templateUrl: './add-spent-form.component.html',
   styleUrl: './add-spent-form.component.css',

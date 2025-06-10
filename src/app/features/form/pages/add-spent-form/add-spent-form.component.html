@@ -3,8 +3,12 @@
 />
 
 <app-form-container>
-  <h2 class="subtitle">{{ formConfig.subtitle }}</h2>
-  <p>{{ formConfig.description }}</p>
+  <!-- <h2 class="subtitle">{{ formConfig.subtitle }}</h2>
+  <p>{{ formConfig.description }}</p> -->
+  <app-subtitle
+    [subtitle]="formConfig.subtitle"
+    [description]="formConfig.description"
+  />
 
   <form class="form" [formGroup]="addSpentForm">
     <app-field [form]="addSpentForm" [fields]="formConfig.fields" />
