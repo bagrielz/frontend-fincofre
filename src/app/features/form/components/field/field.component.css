@@ -13,9 +13,14 @@
   display: flex;
 }
 
+.custom-input select {
+  color: var(--color-gray-300);
+}
+
 .input-form {
   width: 100%;
   box-sizing: border-box;
+  background: var(--color-light);
 
   font-size: var(--font-size-sm);
   padding: 0.5rem 3.5rem 0.5rem 0.75rem;
@@ -24,10 +29,10 @@
   border-radius: 0.375rem;
 }
 
-.input-form.custom-date {
-  padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+.input-form[type="date"] {
+  color: var(--color-gray-300);
 }
 
-.select {
-  appearance: none;
+.input-form.custom-date {
+  padding: 0.5rem 0.5rem 0.5rem 0.75rem;
 }

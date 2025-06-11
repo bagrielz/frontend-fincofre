@@ -15,9 +15,9 @@
     <select
       [id]="field.formControlName"
       [formControlName]="field.formControlName"
-      class="select"
+      class="input-form"
     >
-      <option value="" disabled selected hidden>Escolha o status</option>
+      <option value="" disabled selected>Escolha o status</option>
       @for (status of field.options; track $index) {
       <option [value]="status.value">{{ status.label }}</option>
       }
