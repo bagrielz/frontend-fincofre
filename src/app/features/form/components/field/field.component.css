@@ -27,3 +27,7 @@
 .input-form.custom-date {
   padding: 0.5rem 0.5rem 0.5rem 0.75rem;
 }
+
+.select {
+  appearance: none;
+}

@@ -32,6 +32,23 @@ export function getAddSpentFormConfig(): FormConfig {
         validators: [Validators.required],
         width: 'full',
       },
+      {
+        label: 'Status',
+        formControlName: 'status',
+        type: 'select',
+        required: true,
+        errorMessages: {
+          required: 'Status é um campo obrigatório',
+        },
+        placeholder: 'Escolha o status',
+        validators: [Validators.required],
+        options: [
+          { label: 'Agendado', value: 'agendado' },
+          { label: 'Concluído', value: 'concluido' },
+          { label: 'Cancelado', value: 'cancelado' },
+        ],
+        width: 'full',
+      },
     ],
   };
 }

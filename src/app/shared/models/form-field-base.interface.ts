@@ -7,5 +7,6 @@ export interface FormFieldBase {
   placeholder?: string;
   icon?: string;
   validators?: any[];
+  options?: { label: string; value: string }[];
   width?: 'full' | 'half';
 }

@@ -2,6 +2,7 @@
 <div class="field" [formGroup]="form()">
   <label for="label-form">{{ field.label }}</label>
   <div class="custom-input">
+    @if (field.type !== 'select') {
     <input
       [id]="field.formControlName"
       [type]="field.type"
@@ -10,7 +11,18 @@
       [formControlName]="field.formControlName"
       [placeholder]="field.placeholder || ''"
     />
-    @if (field.icon?.trim()) {
+    } @else {
+    <select
+      [id]="field.formControlName"
+      [formControlName]="field.formControlName"
+      class="select"
+    >
+      <option value="" disabled selected hidden>Escolha o status</option>
+      @for (status of field.options; track $index) {
+      <option [value]="status.value">{{ status.label }}</option>
+      }
+    </select>
+    } @if (field.icon?.trim()) {
     <img
       [ngClass]="field.type === 'date' ? 'custom-date' : ''"
       [src]="field.icon"
