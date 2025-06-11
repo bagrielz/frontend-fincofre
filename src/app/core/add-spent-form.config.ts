@@ -29,7 +29,6 @@ export function getAddSpentFormConfig(): FormConfig {
           required: 'Data é um campo obrigatório',
         },
         placeholder: 'Selecione a data',
-        icon: 'icons/calendar.svg',
         validators: [Validators.required],
         width: 'full',
       },
