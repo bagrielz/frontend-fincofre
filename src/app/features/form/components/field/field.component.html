@@ -6,6 +6,7 @@
       [id]="field.formControlName"
       [type]="field.type"
       class="input-form"
+      [ngClass]="field.type === 'date' ? 'custom-date' : ''"
       [formControlName]="field.formControlName"
       [placeholder]="field.placeholder || ''"
     />
