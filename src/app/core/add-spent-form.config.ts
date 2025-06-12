@@ -41,6 +41,7 @@ export function getAddSpentFormConfig(): FormConfig {
           required: 'Status é um campo obrigatório',
         },
         placeholder: 'Escolha o status',
+        icon: 'icons/chevron-down.svg',
         validators: [Validators.required],
         options: [
           { label: 'Agendado', value: 'agendado' },
@@ -48,6 +49,20 @@ export function getAddSpentFormConfig(): FormConfig {
           { label: 'Cancelado', value: 'cancelado' },
         ],
         width: 'full',
+      },
+      {
+        label: 'Valor',
+        formControlName: 'value',
+        type: 'number',
+        required: true,
+        errorMessages: {
+          required: 'Valor é um campo obrigatório',
+        },
+        placeholder: 'Digite o valor do gasto',
+        validators: [Validators.required],
+        width: 'full',
+        step: '0.01',
+        min: '0',
       },
     ],
   };

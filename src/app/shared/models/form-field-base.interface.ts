@@ -9,4 +9,6 @@ export interface FormFieldBase {
   validators?: any[];
   options?: { label: string; value: string }[];
   width?: 'full' | 'half';
+  step?: string;
+  min?: string;
 }

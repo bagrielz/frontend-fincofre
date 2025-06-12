@@ -7,7 +7,7 @@
       [id]="field.formControlName"
       [type]="field.type"
       class="input-form"
-      [ngClass]="field.type === 'date' ? 'custom-date' : ''"
+      [ngClass]="field.type !== 'text' ? 'custom' : ''"
       [formControlName]="field.formControlName"
       [placeholder]="field.placeholder || ''"
     />
@@ -15,7 +15,7 @@
     <select
       [id]="field.formControlName"
       [formControlName]="field.formControlName"
-      class="input-form"
+      class="input-form select"
     >
       <option value="" disabled selected>Escolha o status</option>
       @for (status of field.options; track $index) {
@@ -24,7 +24,7 @@
     </select>
     } @if (field.icon?.trim()) {
     <img
-      [ngClass]="field.type === 'date' ? 'custom-date' : ''"
+      [ngClass]="field.type !== 'text' ? 'custom-icon' : ''"
       [src]="field.icon"
       alt=""
     />
