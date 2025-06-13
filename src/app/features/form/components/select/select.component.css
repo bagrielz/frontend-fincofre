@@ -1,0 +1,47 @@
+#select-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: var(--color-light);
+  padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+  border: 1px solid var(--color-gray-200);
+
+  border-radius: 0.375rem;
+}
+
+#selected-value {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-regular);
+  color: var(--color-gray-300);
+}
+
+#chevron-up {
+  display: none;
+}
+
+#options-view-button:focus + #select-button,
+#options-view-button:checked + #selected-button {
+  outline: 2px solid var(--color-blue);
+}
+
+#options-view-button:checked + #select-button #chevron-down {
+  display: none;
+}
+
+#options-view-button:checked + #select-button #chevron-up {
+  display: inline-block;
+}
+
+#category-select {
+  position: relative;
+}
+
+#options-view-button {
+  all: unset;
+  position: absolute;
+  inset: 0;
+
+  cursor: pointer;
+  z-index: 3;
+}
