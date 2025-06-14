@@ -13,7 +13,32 @@
     </div>
   </div>
 
-  @for (pill of pillList; track $index) {
-  <app-pill [props]="pill" />
-  }
+  <ul class="options">
+    @for (pill of pillList; track $index) {
+    <li class="option">
+      <input
+        type="radio"
+        name="status"
+        [value]="pill.type"
+        [attr.data-label]="pill.text"
+      />
+      <app-pill [props]="pill" />
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 16 17"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.3334 4.5L6.00008 11.8333L2.66675 8.5"
+          stroke="#2D7DD4"
+          stroke-width="1.33"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </li>
+    }
+  </ul>
 </div>

@@ -45,3 +45,48 @@
   cursor: pointer;
   z-index: 3;
 }
+
+.options {
+  margin-top: 0.25rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--color-gray-200);
+  display: none;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  padding: 0.5rem 0.75rem;
+
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.option:last-child {
+  border: none;
+  border-radius: 0.375rem;
+}
+
+.option svg {
+  margin-left: auto;
+  display: none;
+}
+
+.option:has(input:checked),
+.option:hover {
+  background-color: var(--color-gray-100);
+}
+
+.option:has(input:checked) svg {
+  display: block;
+}
+
+.option input[type="radio"] {
+  all: unset;
+
+  position: absolute;
+  inset: 0;
+
+  cursor: pointer;
+}
