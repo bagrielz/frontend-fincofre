@@ -1,0 +1,51 @@
+.pill {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+
+  font-weight: var(--font-medium);
+
+  padding: 0.25rem 0.5rem;
+  color: var(--color-light);
+  border-radius: 26.25rem;
+}
+
+.circle {
+  display: block;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 100%;
+}
+
+.pill.waiting {
+  background: rgba(106, 117, 133, 0.5);
+}
+
+.circle.waiting {
+  background: var(--color-gray-300);
+}
+
+.pill.canceled {
+  background: rgba(169, 61, 74, 0.5);
+}
+
+.circle.canceled {
+  background: var(--color-red-100);
+}
+
+.pill.scheduled {
+  background: rgba(45, 125, 212, 0.5);
+}
+
+.circle.scheduled {
+  background: var(--color-blue);
+}
+
+.pill.completed {
+  background: rgba(44, 160, 103, 0.5);
+}
+
+.circle.completed {
+  background: var(--color-green);
+}
