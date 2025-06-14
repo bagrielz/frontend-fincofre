@@ -1,3 +1,4 @@
-<div class="pill">
-  <div class="circle"></div>
+<div class="pill" [ngClass]="props().type">
+  <div class="circle" [ngClass]="props().type"></div>
+  {{ props().text }}
 </div>

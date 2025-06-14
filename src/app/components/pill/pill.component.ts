@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { PillConfig } from '../../shared/models/pill-config.interface';
 
 @Component({
   selector: 'app-pill',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
   templateUrl: './pill.component.html',
   styleUrl: './pill.component.css',
 })
-export class PillComponent {}
+export class PillComponent {
+  props = input.required<PillConfig>();
+}

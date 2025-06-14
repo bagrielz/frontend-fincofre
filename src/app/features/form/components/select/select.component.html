@@ -12,4 +12,8 @@
       </div>
     </div>
   </div>
+
+  @for (pill of pillList; track $index) {
+  <app-pill [props]="pill" />
+  }
 </div>
