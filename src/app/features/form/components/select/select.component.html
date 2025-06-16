@@ -4,7 +4,11 @@
     <input type="checkbox" id="options-view-button" />
 
     <div id="select-button">
-      <div id="selected-value">Selecione o status</div>
+      <div id="selected-value">
+        @if (selectedPill()) {
+        <app-pill [props]="selectedPill()!" />
+        } @else { Selecione }
+      </div>
 
       <div id="chevrons">
         <img id="chevron-down" src="icons/chevron-down.svg" alt="" />
@@ -21,6 +25,7 @@
         name="status"
         [value]="pill.type"
         [attr.data-label]="pill.text"
+        (click)="selectPill(pill)"
       />
       <app-pill [props]="pill" />
       <svg

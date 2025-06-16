@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { PillComponent } from '../../../../components/pill/pill.component';
 import { PillConfig } from '../../../../shared/models/pill-config.interface';
 import { PillStatus } from '../../../../core/pill-status.config';
@@ -11,4 +11,10 @@ import { PillStatus } from '../../../../core/pill-status.config';
 })
 export class SelectComponent {
   pillList: PillConfig[] = PillStatus;
+
+  selectedPill = signal<PillConfig | null>(null);
+
+  selectPill(pill: PillConfig) {
+    this.selectedPill.set(pill);
+  }
 }
