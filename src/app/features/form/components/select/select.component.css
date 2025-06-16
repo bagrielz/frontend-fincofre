@@ -1,3 +1,7 @@
+#select-content {
+  position: relative;
+}
+
 #select-button {
   display: flex;
   justify-content: space-between;
@@ -31,10 +35,6 @@
 
 #options-view-button:checked + #select-button #chevron-up {
   display: inline-block;
-}
-
-#category-select {
-  position: relative;
 }
 
 #options-view-button {
@@ -89,4 +89,8 @@
   inset: 0;
 
   cursor: pointer;
+}
+
+#select-content:has(#options-view-button:checked) + .options {
+  display: block;
 }
