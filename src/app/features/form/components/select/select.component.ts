@@ -25,4 +25,11 @@ export class SelectComponent {
       this.optionsViewButtonRef.nativeElement.checked = false;
     }
   }
+
+  handleKeydown(event: KeyboardEvent, pill: PillConfig) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.selectPill(pill);
+    }
+  }
 }

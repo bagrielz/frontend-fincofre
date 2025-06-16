@@ -17,14 +17,18 @@
     </div>
   </div>
 
-  <ul class="options">
+  <ul class="options" role="listbox">
     @for (pill of pillList; track $index) {
     <li class="option">
       <input
         type="radio"
+        role="option"
+        [attr.aria-selected]="selectedPill()?.type === pill.type"
         name="status"
         [value]="pill.type"
         [attr.data-label]="pill.text"
+        tabindex="0"
+        (keydown)="handleKeydown($event, pill)"
         (click)="selectPill(pill)"
       />
       <app-pill [props]="pill" />
