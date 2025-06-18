@@ -1,18 +1,18 @@
-<div class="select">
-  <div id="select-content">
+<div class="select-container">
+  <div class="select-content">
     <label for="options-view-button"> Categoria </label>
-    <input type="checkbox" id="options-view-button" #optionsViewButton />
+    <input type="checkbox" class="options-view-button" #optionsViewButton />
 
-    <div id="select-button">
-      <div id="selected-value">
+    <div class="select-button">
+      <div class="selected-value">
         @if (selectedPill()) {
         <app-pill [props]="selectedPill()!" />
-        } @else { Selecione }
+        } @else { Selecione uma opção }
       </div>
 
-      <div id="chevrons">
-        <img id="chevron-down" src="icons/chevron-down.svg" alt="" />
-        <img id="chevron-up" src="icons/chevron-up.svg" alt="" />
+      <div class="chevrons">
+        <img class="chevron-down" src="icons/chevron-down.svg" alt="" />
+        <img class="chevron-up" src="icons/chevron-up.svg" alt="" />
       </div>
     </div>
   </div>
