@@ -47,6 +47,7 @@ export function getAddSpentFormConfig(): FormConfig {
           { label: 'Agendado', value: 'agendado' },
           { label: 'Concluído', value: 'concluido' },
           { label: 'Cancelado', value: 'cancelado' },
+          { label: 'Aguardando', value: 'aguardando' },
         ],
         width: 'full',
       },
