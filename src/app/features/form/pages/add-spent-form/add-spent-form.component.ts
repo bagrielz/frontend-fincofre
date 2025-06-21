@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { FieldComponent } from '../../components/field/field.component';
 import { FormContainerComponent } from '../../components/form-container/form-container.component';
 import { SubtitleComponent } from '../../components/subtitle/subtitle.component';
+import { ButtonComponent } from '../../../../shared/components/button/button.component';
 
 @Component({
   selector: 'app-add-spent-form',
@@ -19,6 +20,7 @@ import { SubtitleComponent } from '../../components/subtitle/subtitle.component'
     CommonModule,
     FormContainerComponent,
     SubtitleComponent,
+    ButtonComponent,
   ],
   templateUrl: './add-spent-form.component.html',
   styleUrl: './add-spent-form.component.css',
