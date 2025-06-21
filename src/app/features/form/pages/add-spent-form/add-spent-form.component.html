@@ -10,5 +10,12 @@
 
   <form class="form" [formGroup]="addSpentForm">
     <app-field [form]="addSpentForm" [fields]="formConfig.fields" />
+    <div class="form-buttons-container">
+      <app-button type="primary">
+        <img src="icons/plus-circle.svg" alt="" />
+        Adicionar
+      </app-button>
+      <app-button type="secondary"> Cancelar </app-button>
+    </div>
   </form>
 </app-form-container>
