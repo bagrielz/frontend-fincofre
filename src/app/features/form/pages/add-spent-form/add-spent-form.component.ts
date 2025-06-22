@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TitleComponent } from '../../../../components/title/title.component';
+import { TitleComponent } from '../../../../shared/components/title/title.component';
 import { FormConfig } from '../../../../shared/models/form-config.interface';
 import { DynamicFormService } from '../../services/dynamic-form.service';
 import { getAddSpentFormConfig } from '../../../../core/add-spent-form.config';

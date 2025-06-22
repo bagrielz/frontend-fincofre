@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TableComponent } from '../components/table/table.component';
-import { TitleComponent } from '../../../components/title/title.component';
+import { TitleComponent } from '../../../shared/components/title/title.component';
 import { ToastComponent } from '../../../shared/components/toast/toast.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 
