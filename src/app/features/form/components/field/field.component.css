@@ -15,7 +15,12 @@
   position: relative;
 }
 
+.custom-input input,
 .custom-input select {
+  font-family: var(--font-body);
+}
+
+.custom-input select:invalid {
   color: var(--color-gray-300);
 }
 

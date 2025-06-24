@@ -16,8 +16,11 @@
       [id]="field.formControlName"
       [formControlName]="field.formControlName"
       class="input-form select"
+      required
     >
-      <option value="" disabled selected>{{ field.placeholder }}</option>
+      <option value="" disabled selected hidden>
+        {{ field.placeholder }}
+      </option>
       @for (status of field.options; track $index) {
       <option [value]="status.value">{{ status.label }}</option>
       }
