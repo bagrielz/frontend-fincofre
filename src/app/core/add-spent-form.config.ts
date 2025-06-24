@@ -103,6 +103,23 @@ export function getAddSpentFormConfig(): FormConfig {
         width: 'full',
       },
       {
+        label: 'Tipo de gasto',
+        formControlName: 'spentType',
+        type: 'select',
+        required: true,
+        errorMessages: {
+          required: 'Tipo de gasto é um campo obrigatório',
+        },
+        placeholder: 'Escolha o tipo de gasto',
+        icon: 'icons/chevron-down.svg',
+        validators: [Validators.required],
+        options: [
+          { label: 'Fixo', value: 'fixo' },
+          { label: 'Variável', value: 'variavel' },
+        ],
+        width: 'full',
+      },
+      {
         label: 'Forma de pagamento',
         formControlName: 'status',
         type: 'select',
