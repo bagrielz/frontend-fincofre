@@ -10,6 +10,7 @@
       [ngClass]="field.type !== 'text' ? 'custom' : ''"
       [formControlName]="field.formControlName"
       [placeholder]="field.placeholder || ''"
+      required
     />
     } @else {
     <select

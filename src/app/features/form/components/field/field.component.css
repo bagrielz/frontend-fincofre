@@ -42,8 +42,12 @@
   appearance: none;
 }
 
-.input-form[type="date"] {
+.input-form[type="date"]:invalid {
   color: var(--color-gray-300);
+}
+
+.input-form[type="date"]:focus {
+  outline: 2px solid var(--color-blue);
 }
 
 .input-form.custom {
