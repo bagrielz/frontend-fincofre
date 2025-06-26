@@ -1,0 +1,32 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  background: var(--color-light);
+}
+
+.login-content {
+  width: var(--w-login-content);
+  padding-top: 7.5rem;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-content img {
+  align-self: center;
+}
+
+.login-wrapper {
+  margin-top: 3.5rem;
+  font-size: var(--font-size-base);
+}
+
+.login-wrapper p {
+  max-width: 15rem;
+  line-height: 120%;
+}
+
+.login-wrapper span {
+  color: var(--color-gray-300);
+}
