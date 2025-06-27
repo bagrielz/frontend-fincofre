@@ -28,6 +28,8 @@
 }
 
 .login-wrapper span {
+  display: 0.125rem;
+  margin-top: 1rem;
   color: var(--color-gray-300);
 }
 
