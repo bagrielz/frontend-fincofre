@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ButtonComponent } from '../../../../shared/components/button/button.component';
+import { InitialFormContainerComponent } from '../../components/initial-form-container/initial-form-container.component';
 
 @Component({
   selector: 'app-login',
-  imports: [ButtonComponent],
+  imports: [InitialFormContainerComponent],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css',
 })
