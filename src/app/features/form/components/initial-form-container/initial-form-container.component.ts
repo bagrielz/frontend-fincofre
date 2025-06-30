@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { FormConfig } from '../../../../shared/models/form-config.interface';
 import { FormGroup } from '@angular/forms';
@@ -15,11 +15,14 @@ export class InitialFormContainerComponent {
   loginForm!: FormGroup;
   formConfig!: FormConfig;
 
-  constructor(private dynamicFormService: DynamicFormService) {
-    this.dynamicFormService.registerFormConfig('loginForm', getLoginForm);
-  }
+  inputFormGroup = input.required<string>();
+
+  constructor(private dynamicFormService: DynamicFormService) {}
 
   ngOnInit(): void {
+    const formKey: string = this.inputFormGroup();
+
+    this.dynamicFormService.registerFormConfig(formKey, getLoginForm);
     this.formConfig = this.dynamicFormService.getFormConfig('loginForm');
     this.loginForm = this.dynamicFormService.createFormGroup(this.formConfig);
   }
