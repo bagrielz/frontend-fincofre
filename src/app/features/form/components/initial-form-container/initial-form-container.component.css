@@ -2,6 +2,9 @@
   margin-top: 3.5rem;
   font-size: var(--font-size-base);
 }
+.form-wrapper form {
+  margin-top: 2rem;
+}
 
 .form-wrapper p {
   max-width: 15rem;
@@ -15,6 +18,7 @@
 }
 
 .buttons {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;

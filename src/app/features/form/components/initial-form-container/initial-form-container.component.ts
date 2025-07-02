@@ -1,18 +1,19 @@
 import { Component, input } from '@angular/core';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { FormConfig } from '../../../../shared/models/form-config.interface';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DynamicFormService } from '../../services/dynamic-form.service';
 import { getLoginForm } from '../../../../core/login-form.config';
+import { FieldComponent } from '../field/field.component';
 
 @Component({
   selector: 'app-initial-form-container',
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, FieldComponent, ReactiveFormsModule],
   templateUrl: './initial-form-container.component.html',
   styleUrl: './initial-form-container.component.css',
 })
 export class InitialFormContainerComponent {
-  loginForm!: FormGroup;
+  form!: FormGroup;
   formConfig!: FormConfig;
 
   inputFormGroup = input.required<string>();
@@ -23,7 +24,7 @@ export class InitialFormContainerComponent {
     const formKey: string = this.inputFormGroup();
 
     this.dynamicFormService.registerFormConfig(formKey, getLoginForm);
-    this.formConfig = this.dynamicFormService.getFormConfig('loginForm');
-    this.loginForm = this.dynamicFormService.createFormGroup(this.formConfig);
+    this.formConfig = this.dynamicFormService.getFormConfig(formKey);
+    this.form = this.dynamicFormService.createFormGroup(this.formConfig);
   }
 }

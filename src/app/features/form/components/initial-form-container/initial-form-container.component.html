@@ -2,11 +2,13 @@
   <p>{{ formConfig.title }}</p>
   <span>{{ formConfig.highlight }}</span>
 
-  <!-- form -->
-
-  <div class="buttons">
-    @if (formConfig.buttons) { @for (btn of formConfig.buttons; track $index) {
-    <app-button [type]="btn.type">{{ btn.text }}</app-button>
-    } }
-  </div>
+  <form [formGroup]="form">
+    <app-field [form]="form" [fields]="formConfig.fields" />
+    <div class="buttons">
+      @if (formConfig.buttons) { @for (btn of formConfig.buttons; track $index)
+      {
+      <app-button [type]="btn.type">{{ btn.text }}</app-button>
+      } }
+    </div>
+  </form>
 </div>
