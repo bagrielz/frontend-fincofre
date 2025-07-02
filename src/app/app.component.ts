@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './features/header/pages/header.component';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 const MODULES = [RouterOutlet, ReactiveFormsModule];
@@ -15,4 +15,11 @@ const COMPONENTS = [HeaderComponent];
 })
 export class AppComponent {
   title = 'frontend-fincofre';
+
+  constructor(private router: Router) {}
+
+  shouldShowHeader(): boolean {
+    const hiddenRoutes = ['/login'];
+    return !hiddenRoutes.includes(this.router.url);
+  }
 }
