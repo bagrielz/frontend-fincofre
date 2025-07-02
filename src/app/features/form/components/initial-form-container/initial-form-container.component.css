@@ -17,8 +17,21 @@
   color: var(--color-gray-300);
 }
 
+.forgot-password {
+  display: block;
+
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-medium);
+
+  text-decoration: underline;
+  text-align: right;
+  cursor: pointer;
+}
+
 .buttons {
   margin-top: 2rem;
+  margin-bottom: 5rem;
+
   display: flex;
   flex-direction: column;
   gap: 1rem;

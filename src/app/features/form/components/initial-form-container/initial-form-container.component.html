@@ -4,6 +4,9 @@
 
   <form [formGroup]="form">
     <app-field [form]="form" [fields]="formConfig.fields" />
+    @if (inputFormGroup() === 'loginForm') {
+    <a class="forgot-password">Esqueceu sua senha? Clique aqui</a>
+    }
     <div class="buttons">
       @if (formConfig.buttons) { @for (btn of formConfig.buttons; track $index)
       {
