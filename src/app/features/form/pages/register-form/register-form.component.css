@@ -1,0 +1,18 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  background: var(--color-light);
+}
+
+.register-content {
+  width: var(--w-login-content);
+  padding-top: 7.5rem;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.register-content img {
+  align-self: center;
+}
