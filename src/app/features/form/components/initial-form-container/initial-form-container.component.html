@@ -8,9 +8,11 @@
     <a class="forgot-password">Esqueceu sua senha? Clique aqui</a>
     }
     <div class="buttons">
-      @if (formConfig.buttons) { @for (btn of formConfig.buttons; track $index)
-      {
-      <app-button [type]="btn.type">{{ btn.text }}</app-button>
+      @if (formConfig.buttons) { @for (btn of formConfig.buttons; track $index;
+      let last = $last) {
+      <div class="button-wrapper" [class.with-border]="!last">
+        <app-button [type]="btn.type">{{ btn.text }}</app-button>
+      </div>
       } }
     </div>
   </form>
