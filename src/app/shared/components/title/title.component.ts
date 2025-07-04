@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
 
 type Value = {
-  text: string;
-  highlight: string;
+  text?: string;
+  highlight?: string;
 };
 
 @Component({

@@ -1,10 +1,12 @@
 <div class="title-container">
   <h1
     class="title"
-    [ngClass]="{ 'with-highlight': value().highlight.trim().length > 0 }"
+    [ngClass]="{
+      'with-highlight': (value().highlight || '').trim().length > 0
+    }"
   >
     {{ value().text }}
-    @if (value().highlight.trim().length) {
+    @if (value().highlight?.trim()?.length) {
     <span class="highlight">{{ value().highlight }}</span>
     }
   </h1>

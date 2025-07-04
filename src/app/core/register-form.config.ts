@@ -3,7 +3,7 @@ import { FormConfig } from '../shared/models/form-config.interface';
 
 export function getRegisterForm(): FormConfig {
   return {
-    title: 'Explore as melhores formas de controlar seu dinheiro',
+    title: 'Explore as melhores formas de controlar seu dinheiro.',
     highlight: 'Crie sua conta gratuitamente',
     buttons: [
       {

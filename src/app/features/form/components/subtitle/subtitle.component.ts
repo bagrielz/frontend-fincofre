@@ -7,6 +7,6 @@ import { Component, input } from '@angular/core';
   styleUrl: './subtitle.component.css',
 })
 export class SubtitleComponent {
-  subtitle = input.required<string>();
-  description = input.required<string>();
+  subtitle = input<string>();
+  description = input<string>();
 }
