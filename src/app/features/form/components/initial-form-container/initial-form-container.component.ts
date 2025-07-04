@@ -42,6 +42,6 @@ export class InitialFormContainerComponent {
       return getRegisterForm();
     }
 
-    return getLoginForm();
+    throw new Error(`Formulário "${key}" não encontrado`);
   };
 }
