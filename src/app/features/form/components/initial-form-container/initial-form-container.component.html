@@ -3,7 +3,7 @@
   <span>{{ formConfig.highlight }}</span>
 
   <form [formGroup]="form">
-    <app-field [form]="form" [fields]="formConfig.fields" />
+    <app-form-fields [form]="form" [fields]="formConfig.fields" />
     @if (inputFormGroup() === 'loginForm') {
     <div class="forgot-password">
       <a href="#">Esqueceu a senha? Clique aqui</a>

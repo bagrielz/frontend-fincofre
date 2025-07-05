@@ -5,7 +5,7 @@ import { DynamicFormService } from '../../services/dynamic-form.service';
 import { getAddSpentFormConfig } from '../../../../core/add-spent-form.config';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FieldComponent } from '../../components/field/field.component';
+import { FormFieldsComponent } from '../../components/form-fields/form-fields.component';
 import { FormContainerComponent } from '../../components/form-container/form-container.component';
 import { SubtitleComponent } from '../../components/subtitle/subtitle.component';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
@@ -13,7 +13,7 @@ import { ButtonComponent } from '../../../../shared/components/button/button.com
 @Component({
   selector: 'app-add-spent-form',
   imports: [
-    FieldComponent,
+    FormFieldsComponent,
     TitleComponent,
     ReactiveFormsModule,
     CommonModule,
