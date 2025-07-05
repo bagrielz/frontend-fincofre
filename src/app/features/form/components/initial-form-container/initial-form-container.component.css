@@ -18,14 +18,17 @@
 }
 
 .forgot-password {
-  display: block;
+  display: flex;
+  justify-content: end;
+}
 
+.forgot-password a {
   font-size: var(--font-size-xs);
   font-weight: var(--font-medium);
 
   text-decoration: underline;
-  text-align: right;
   cursor: pointer;
+  color: var(--color-dark-300);
 }
 
 .buttons {

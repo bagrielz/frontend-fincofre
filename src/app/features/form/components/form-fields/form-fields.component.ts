@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-field',
+  selector: 'app-form-fields',
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './field.component.html',
-  styleUrl: './field.component.css',
+  templateUrl: './form-fields.component.html',
+  styleUrl: './form-fields.component.css',
 })
-export class FieldComponent {
+export class FormFieldsComponent {
   form = input.required<FormGroup>();
   fields = input.required<FormFieldBase[]>();
 }

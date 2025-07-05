@@ -19,7 +19,7 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   shouldShowHeader(): boolean {
-    const hiddenRoutes = ['/login'];
+    const hiddenRoutes = ['/login', '/cadastrar'];
     return !hiddenRoutes.includes(this.router.url);
   }
 }

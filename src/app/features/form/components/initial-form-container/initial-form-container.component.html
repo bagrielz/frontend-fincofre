@@ -3,9 +3,11 @@
   <span>{{ formConfig.highlight }}</span>
 
   <form [formGroup]="form">
-    <app-field [form]="form" [fields]="formConfig.fields" />
+    <app-form-fields [form]="form" [fields]="formConfig.fields" />
     @if (inputFormGroup() === 'loginForm') {
-    <a class="forgot-password">Esqueceu a senha? Clique aqui</a>
+    <div class="forgot-password">
+      <a href="#">Esqueceu a senha? Clique aqui</a>
+    </div>
     }
     <div class="buttons">
       @if (formConfig.buttons) { @for (btn of formConfig.buttons; track $index;
