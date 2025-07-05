@@ -12,3 +12,10 @@
   border-radius: 0.625rem;
   padding: 1.5rem;
 }
+
+.form-buttons-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}

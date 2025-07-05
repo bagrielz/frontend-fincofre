@@ -1,25 +1,5 @@
 <main class="main-container">
   <div class="main-content">
-    <app-title
-      [value]="{ text: formConfig.title, highlight: formConfig.highlight }"
-    />
-
-    <app-form-container>
-      <app-subtitle
-        [subtitle]="formConfig.subtitle"
-        [description]="formConfig.description"
-      />
-
-      <form class="form" [formGroup]="addSpentForm">
-        <app-form-fields [form]="addSpentForm" [fields]="formConfig.fields" />
-        <div class="form-buttons-container">
-          <app-button type="primary">
-            <img src="icons/plus-circle.svg" alt="" />
-            Adicionar
-          </app-button>
-          <app-button type="secondary"> Cancelar </app-button>
-        </div>
-      </form>
-    </app-form-container>
+    <app-form-container [inputFormGroup]="'addSpentForm'" />
   </div>
 </main>

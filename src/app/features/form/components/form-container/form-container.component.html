@@ -1,5 +1,23 @@
+<app-title
+  [value]="{ text: formConfig.title, highlight: formConfig.highlight }"
+/>
+
 <div class="form-container">
   <div class="form-content">
-    <ng-content />
+    <app-subtitle
+      [subtitle]="formConfig.subtitle"
+      [description]="formConfig.description"
+    />
+
+    <form [formGroup]="form">
+      <app-form-fields [form]="form" [fields]="formConfig.fields" />
+      <div class="form-buttons-container">
+        <app-button type="primary">
+          <img src="icons/plus-circle.svg" alt="" />
+          Adicionar
+        </app-button>
+        <app-button type="secondary"> Cancelar </app-button>
+      </div>
+    </form>
   </div>
 </div>

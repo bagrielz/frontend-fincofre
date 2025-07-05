@@ -1,44 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { TitleComponent } from '../../../../shared/components/title/title.component';
-import { FormConfig } from '../../../../shared/models/form-config.interface';
-import { DynamicFormService } from '../../services/dynamic-form.service';
-import { getAddSpentFormConfig } from '../../../../core/add-spent-form.config';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { FormFieldsComponent } from '../../components/form-fields/form-fields.component';
+import { Component } from '@angular/core';
 import { FormContainerComponent } from '../../components/form-container/form-container.component';
-import { SubtitleComponent } from '../../components/subtitle/subtitle.component';
-import { ButtonComponent } from '../../../../shared/components/button/button.component';
 
 @Component({
   selector: 'app-add-spent-form',
-  imports: [
-    FormFieldsComponent,
-    TitleComponent,
-    ReactiveFormsModule,
-    CommonModule,
-    FormContainerComponent,
-    SubtitleComponent,
-    ButtonComponent,
-  ],
+  imports: [FormContainerComponent],
   templateUrl: './add-spent-form.component.html',
   styleUrl: './add-spent-form.component.css',
 })
-export class AddSpentFormComponent implements OnInit {
-  addSpentForm!: FormGroup;
-  formConfig!: FormConfig;
-
-  constructor(private dynamicFormService: DynamicFormService) {
-    this.dynamicFormService.registerFormConfig(
-      'addSpentForm',
-      getAddSpentFormConfig
-    );
-  }
-
-  ngOnInit(): void {
-    this.formConfig = this.dynamicFormService.getFormConfig('addSpentForm');
-    this.addSpentForm = this.dynamicFormService.createFormGroup(
-      this.formConfig
-    );
-  }
-}
+export class AddSpentFormComponent {}

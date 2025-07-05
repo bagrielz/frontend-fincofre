@@ -22,22 +22,10 @@ export class InitialFormContainerComponent {
   constructor(private formInitializer: FormInitializerService) {}
 
   ngOnInit(): void {
-    const formKey: string = this.inputFormGroup();
-    const result = this.formInitializer.initializeForm(
-      formKey,
-      this.takesDataFromTheForm
-    );
+    const formKey = this.inputFormGroup();
+    const { form, formConfig } = this.formInitializer.initializeForm(formKey);
 
-    this.form = result.form;
-    this.formConfig = result.formConfig;
+    this.form = form;
+    this.formConfig = formConfig;
   }
-
-  private takesDataFromTheForm = (): FormConfig => {
-    const key = this.inputFormGroup();
-
-    if (key === 'loginForm') return getLoginForm();
-    if (key === 'registerForm') return getRegisterForm();
-
-    throw new Error(`Formulário "${key}" não encontrado`);
-  };
 }

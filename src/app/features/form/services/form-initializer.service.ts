@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { DynamicFormService } from './dynamic-form.service';
 import { FormConfig } from '../../../shared/models/form-config.interface';
 import { FormGroup } from '@angular/forms';
+import { getLoginForm } from '../../../core/login-form.config';
+import { getRegisterForm } from '../../../core/register-form.config';
+import { getAddSpentFormConfig } from '../../../core/add-spent-form.config';
 
 @Injectable({
   providedIn: 'root',
@@ -9,18 +12,25 @@ import { FormGroup } from '@angular/forms';
 export class FormInitializerService {
   constructor(private dynamicFormService: DynamicFormService) {}
 
-  initializeForm(
-    formKey: string,
-    configFactory: () => FormConfig
-  ): {
+  initializeForm(formKey: string): {
     form: FormGroup;
     formConfig: FormConfig;
   } {
-    this.dynamicFormService.registerFormConfig(formKey, configFactory);
+    const formConfig = this.getFormConfigByKey(formKey);
 
-    const formConfig = this.dynamicFormService.getFormConfig(formKey);
-    const form = this.dynamicFormService.createFormGroup(formConfig);
+    this.dynamicFormService.registerFormConfig(formKey, () => formConfig);
 
-    return { form, formConfig };
+    const finalConfig = this.dynamicFormService.getFormConfig(formKey);
+    const form = this.dynamicFormService.createFormGroup(finalConfig);
+
+    return { form, formConfig: finalConfig };
+  }
+
+  private getFormConfigByKey(key: string) {
+    if (key === 'loginForm') return getLoginForm();
+    if (key === 'registerForm') return getRegisterForm();
+    if (key === 'addSpentForm') return getAddSpentFormConfig();
+
+    throw new Error(`Formulário "${key}" não encontrado`);
   }
 }
