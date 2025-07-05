@@ -2,10 +2,10 @@ import { Component, ErrorHandler, input } from '@angular/core';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { FormConfig } from '../../../../shared/models/form-config.interface';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { DynamicFormService } from '../../services/dynamic-form.service';
 import { getLoginForm } from '../../../../core/login-form.config';
 import { getRegisterForm } from '../../../../core/register-form.config';
 import { FormFieldsComponent } from '../form-fields/form-fields.component';
+import { FormInitializerService } from '../../services/form-initializer.service';
 
 @Component({
   selector: 'app-initial-form-container',
@@ -19,28 +19,24 @@ export class InitialFormContainerComponent {
 
   inputFormGroup = input.required<string>();
 
-  constructor(private dynamicFormService: DynamicFormService) {}
+  constructor(private formInitializer: FormInitializerService) {}
 
   ngOnInit(): void {
     const formKey: string = this.inputFormGroup();
-
-    this.dynamicFormService.registerFormConfig(
+    const result = this.formInitializer.initializeForm(
       formKey,
       this.takesDataFromTheForm
     );
-    this.formConfig = this.dynamicFormService.getFormConfig(formKey);
-    this.form = this.dynamicFormService.createFormGroup(this.formConfig);
+
+    this.form = result.form;
+    this.formConfig = result.formConfig;
   }
 
   private takesDataFromTheForm = (): FormConfig => {
     const key = this.inputFormGroup();
 
-    if (key === 'loginForm') {
-      return getLoginForm();
-    }
-    if (key === 'registerForm') {
-      return getRegisterForm();
-    }
+    if (key === 'loginForm') return getLoginForm();
+    if (key === 'registerForm') return getRegisterForm();
 
     throw new Error(`Formulário "${key}" não encontrado`);
   };
