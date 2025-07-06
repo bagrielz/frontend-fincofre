@@ -5,6 +5,7 @@ import { FormGroup } from '@angular/forms';
 import { getLoginForm } from '../../../core/login-form.config';
 import { getRegisterForm } from '../../../core/register-form.config';
 import { getAddSpentFormConfig } from '../../../core/add-spent-form.config';
+import { getUpdateSpentForm } from '../../../core/update-spent-form.config';
 
 @Injectable({
   providedIn: 'root',
@@ -30,6 +31,7 @@ export class FormInitializerService {
     if (key === 'loginForm') return getLoginForm();
     if (key === 'registerForm') return getRegisterForm();
     if (key === 'addSpentForm') return getAddSpentFormConfig();
+    if (key === 'updateSpentForm') return getUpdateSpentForm();
 
     throw new Error(`Formulário "${key}" não encontrado`);
   }
