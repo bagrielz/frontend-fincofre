@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './single-tab.component.css',
 })
 export class SingleTabComponent {
-  tabs = ['Gastos fixos', 'Gastos variáveis'];
+  tabs = ['Todos', 'Gastos fixos', 'Gastos variáveis'];
   selectedTab = 0;
 
   selectTab(index: number) {
