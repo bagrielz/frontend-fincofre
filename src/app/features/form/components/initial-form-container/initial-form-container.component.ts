@@ -2,8 +2,6 @@ import { Component, ErrorHandler, input } from '@angular/core';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { FormConfig } from '../../../../shared/models/form-config.interface';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { getLoginForm } from '../../../../core/login-form.config';
-import { getRegisterForm } from '../../../../core/register-form.config';
 import { FormFieldsComponent } from '../form-fields/form-fields.component';
 import { FormInitializerService } from '../../services/form-initializer.service';
 
