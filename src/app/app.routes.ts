@@ -4,12 +4,13 @@ import { AddSpentFormComponent } from './features/form/pages/add-spent-form/add-
 import { LoginFormComponent } from './features/form/pages/login-form/login-form.component';
 import { RegisterFormComponent } from './features/form/pages/register-form/register-form.component';
 import { UpdateSpentFormComponent } from './features/form/pages/update-spent-form/update-spent-form.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'login', component: LoginFormComponent },
   { path: 'cadastrar', component: RegisterFormComponent },
-  { path: 'inicio', component: DashboardComponent },
+  { path: 'inicio', canActivate: [AuthGuard], component: DashboardComponent },
   { path: 'adicionar-gasto', component: AddSpentFormComponent },
   { path: 'editar-gasto', component: UpdateSpentFormComponent },
 ];
