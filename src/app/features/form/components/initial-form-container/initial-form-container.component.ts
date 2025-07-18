@@ -15,6 +15,7 @@ export class InitialFormContainerComponent {
   form!: FormGroup;
   formConfig!: FormConfig;
 
+  onSubmit = input.required<(formValue: any) => void>();
   inputFormGroup = input.required<string>();
 
   constructor(private formInitializer: FormInitializerService) {}
@@ -25,5 +26,9 @@ export class InitialFormContainerComponent {
 
     this.form = form;
     this.formConfig = formConfig;
+  }
+
+  submitForm() {
+    this.onSubmit()(this.form.value);
   }
 }

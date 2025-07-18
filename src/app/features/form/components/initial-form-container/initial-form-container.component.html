@@ -2,7 +2,7 @@
   <p>{{ formConfig.title }}</p>
   <span>{{ formConfig.highlight }}</span>
 
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
     <app-form-fields [form]="form" [fields]="formConfig.fields" />
     @if (inputFormGroup() === 'loginForm') {
     <div class="forgot-password">

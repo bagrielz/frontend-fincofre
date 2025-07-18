@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { InitialFormContainerComponent } from '../../components/initial-form-container/initial-form-container.component';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,13 @@ import { Router } from '@angular/router';
   styleUrl: './login-form.component.css',
 })
 export class LoginFormComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
-  whenSending() {
-    this.router.navigate(['/inicio']);
-  }
+  handleLoginSubmit = (formValue: any) => {
+    console.log('Login data: ', formValue);
+    this.authService.login();
+    this.router
+      .navigate(['/inicio'])
+      .then((success) => console.log('Navigation success?', success));
+  };
 }
