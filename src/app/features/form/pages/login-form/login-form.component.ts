@@ -12,11 +12,8 @@ import { AuthService } from '../../../../services/auth.service';
 export class LoginFormComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
-  handleLoginSubmit = (formValue: any) => {
-    console.log('Login data: ', formValue);
+  handleLoginSubmit = () => {
     this.authService.login();
-    this.router
-      .navigate(['/inicio'])
-      .then((success) => console.log('Navigation success?', success));
+    this.router.navigate(['/inicio']);
   };
 }
