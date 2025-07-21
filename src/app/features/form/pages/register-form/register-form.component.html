@@ -2,6 +2,9 @@
   <div class="register-content">
     <img src="icons/logo.svg" alt="Logo da FinCofre" />
 
-    <app-initial-form-container inputFormGroup="registerForm" />
+    <app-initial-form-container
+      inputFormGroup="registerForm"
+      [onSubmit]="handleRegisterSubmit"
+    />
   </div>
 </div>
