@@ -5,12 +5,20 @@ import { LoginFormComponent } from './features/form/pages/login-form/login-form.
 import { RegisterFormComponent } from './features/form/pages/register-form/register-form.component';
 import { UpdateSpentFormComponent } from './features/form/pages/update-spent-form/update-spent-form.component';
 import { AuthGuard } from './guards/auth.guard';
+import { LayoutComponent } from './shared/components/layout/layout.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginFormComponent },
   { path: 'cadastrar', component: RegisterFormComponent },
-  { path: 'inicio', canActivate: [AuthGuard], component: DashboardComponent },
-  { path: 'adicionar-gasto', component: AddSpentFormComponent },
-  { path: 'editar-gasto', component: UpdateSpentFormComponent },
+  {
+    path: '',
+    component: LayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'inicio', component: DashboardComponent },
+      { path: 'adicionar-gasto', component: AddSpentFormComponent },
+      { path: 'editar-gasto', component: UpdateSpentFormComponent },
+    ],
+  },
 ];
