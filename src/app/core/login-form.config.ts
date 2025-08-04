@@ -17,14 +17,14 @@ export function getLoginForm(): FormConfig {
     ],
     fields: [
       {
-        label: 'E-mail',
-        formControlName: 'email',
-        type: 'email',
+        label: 'Login',
+        formControlName: 'login',
+        type: 'text',
         required: true,
         errorMessages: {
-          required: 'E-mail é um campo obrigatório',
+          required: 'Login é um campo obrigatório',
         },
-        placeholder: 'Digite o seu e-mail',
+        placeholder: 'Digite o seu login',
         validators: [Validators.required],
       },
       {

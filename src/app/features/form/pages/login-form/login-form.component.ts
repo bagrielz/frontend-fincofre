@@ -12,8 +12,17 @@ import { AuthService } from '../../../../services/auth.service';
 export class LoginFormComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
-  handleLoginSubmit = () => {
-    this.authService.login();
-    this.router.navigate(['/inicio']);
+  handleLoginSubmit = (formValue: any) => {
+    const { login, password } = formValue;
+    console.log(formValue);
+
+    this.authService.login(login, password).subscribe({
+      next: (response) => {
+        this.router.navigate(['/inicio']);
+      },
+      error: (err) => {
+        console.log('Erro no login', err);
+      },
+    });
   };
 }

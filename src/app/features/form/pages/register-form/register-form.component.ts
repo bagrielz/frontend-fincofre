@@ -13,7 +13,6 @@ export class RegisterFormComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
   handleRegisterSubmit = () => {
-    this.authService.login();
     this.router.navigate(['/inicio']);
   };
 }
