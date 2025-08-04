@@ -17,8 +17,10 @@ export class LoginFormComponent {
     console.log(formValue);
 
     this.authService.login(login, password).subscribe({
-      next: (response) => {
-        this.router.navigate(['/inicio']);
+      next: (res) => {
+        console.log(res);
+        this.authService.setAuthenticated(true);
+        this.router.navigateByUrl('/inicio');
       },
       error: (err) => {
         console.log('Erro no login', err);

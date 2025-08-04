@@ -20,6 +20,10 @@ export class AuthService {
     this.isAuthenticated.set(false);
   }
 
+  setAuthenticated(value: boolean) {
+    this.isAuthenticated.set(value);
+  }
+
   getIsAutheticated() {
     return this.isAuthenticated();
   }
