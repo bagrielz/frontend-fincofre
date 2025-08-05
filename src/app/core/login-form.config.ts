@@ -13,6 +13,7 @@ export function getLoginForm(): FormConfig {
       {
         type: 'secondary',
         text: 'Criar uma conta gratuita',
+        link: '/cadastrar',
       },
     ],
     fields: [
