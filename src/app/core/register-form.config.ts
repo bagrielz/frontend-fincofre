@@ -60,17 +60,6 @@ export function getRegisterForm(): FormConfig {
         placeholder: 'Digite a sua senha',
         validators: [Validators.required],
       },
-      {
-        label: 'Confirmar senha',
-        formControlName: 'password',
-        type: 'password',
-        required: true,
-        errorMessages: {
-          required: 'Confirmar senha é um campo obrigatório',
-        },
-        placeholder: 'Confirme a sua senha',
-        validators: [Validators.required],
-      },
     ],
   };
 }
