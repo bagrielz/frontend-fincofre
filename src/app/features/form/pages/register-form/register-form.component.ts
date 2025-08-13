@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { InitialFormContainerComponent } from '../../components/initial-form-container/initial-form-container.component';
-import { Router } from '@angular/router';
-import { AuthService } from '../../../../services/auth.service';
+import { FormService } from '../../../../services/form.service';
 
 @Component({
   selector: 'app-register-form',
@@ -10,9 +9,10 @@ import { AuthService } from '../../../../services/auth.service';
   styleUrl: './register-form.component.css',
 })
 export class RegisterFormComponent {
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private formService: FormService) {}
 
   handleRegisterSubmit = () => {
-    this.router.navigate(['/inicio']);
+    const formRegister = this.formService.getRegister();
+    console.log('Cadastro realizado com sucesso!', formRegister?.value);
   };
 }

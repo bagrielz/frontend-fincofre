@@ -4,6 +4,7 @@ import { FormConfig } from '../../../../shared/models/form-config.interface';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormFieldsComponent } from '../form-fields/form-fields.component';
 import { FormInitializerService } from '../../services/form-initializer.service';
+import { FormService } from '../../../../services/form.service';
 
 @Component({
   selector: 'app-initial-form-container',
@@ -18,7 +19,10 @@ export class InitialFormContainerComponent {
   onSubmit = input.required<(formValue: any) => void>();
   inputFormGroup = input.required<string>();
 
-  constructor(private formInitializer: FormInitializerService) {}
+  constructor(
+    private formInitializer: FormInitializerService,
+    private formService: FormService
+  ) {}
 
   ngOnInit(): void {
     const formKey = this.inputFormGroup();
@@ -26,6 +30,8 @@ export class InitialFormContainerComponent {
 
     this.form = form;
     this.formConfig = formConfig;
+
+    this.formService.setRegister(this.form);
   }
 
   submitForm() {
