@@ -29,7 +29,7 @@ export function getRegisterForm(): FormConfig {
       },
       {
         label: 'Usuário',
-        formControlName: 'user',
+        formControlName: 'login',
         type: 'text',
         required: true,
         errorMessages: {
