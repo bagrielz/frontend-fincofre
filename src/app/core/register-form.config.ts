@@ -28,14 +28,14 @@ export function getRegisterForm(): FormConfig {
         validators: [Validators.required],
       },
       {
-        label: 'Usuário',
+        label: 'Login',
         formControlName: 'login',
         type: 'text',
         required: true,
         errorMessages: {
-          required: 'Usuário é um campo obrigatório',
+          required: 'Login é um campo obrigatório',
         },
-        placeholder: 'Digite o seu usuário',
+        placeholder: 'Digite o seu login',
         validators: [Validators.required],
       },
       {
