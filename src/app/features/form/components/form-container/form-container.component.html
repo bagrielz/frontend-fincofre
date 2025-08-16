@@ -13,12 +13,15 @@
 
         <form [formGroup]="form">
           <app-form-fields [form]="form" [fields]="formConfig.fields" />
-          <div class="form-buttons-container">
-            <app-button type="primary">
-              <img src="icons/plus-circle.svg" alt="" />
-              Adicionar
-            </app-button>
-            <app-button type="secondary"> Cancelar </app-button>
+          <div class="buttons">
+            @if (formConfig.buttons) { @for (btn of formConfig.buttons; track
+            $index) {
+            <div class="button-wrapper">
+              <app-button [type]="btn.type" [routerLink]="btn.link">{{
+                btn.text
+              }}</app-button>
+            </div>
+            } }
           </div>
         </form>
       </div>
