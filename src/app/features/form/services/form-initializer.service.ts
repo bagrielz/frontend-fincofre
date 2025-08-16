@@ -6,6 +6,7 @@ import { getLoginForm } from '../../../core/login-form.config';
 import { getRegisterForm } from '../../../core/register-form.config';
 import { getAddSpentFormConfig } from '../../../core/add-spent-form.config';
 import { getUpdateSpentForm } from '../../../core/update-spent-form.config';
+import { getProfileFormConfig } from '../../../core/profile-form.config';
 
 @Injectable({
   providedIn: 'root',
@@ -32,6 +33,7 @@ export class FormInitializerService {
     if (key === 'registerForm') return getRegisterForm();
     if (key === 'addSpentForm') return getAddSpentFormConfig();
     if (key === 'updateSpentForm') return getUpdateSpentForm();
+    if (key === 'profileForm') return getProfileFormConfig();
 
     throw new Error(`Formulário "${key}" não encontrado`);
   }
