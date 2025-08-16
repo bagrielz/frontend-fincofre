@@ -15,7 +15,7 @@ export class LoginFormComponent {
   handleLoginSubmit = (formValue: any) => {
     const { login, password } = formValue;
 
-    this.authService.login(login, password).subscribe({
+    this.authService.authenticate(login, password).subscribe({
       next: () => {
         this.authService.setAuthenticated(true);
         this.router.navigateByUrl('/inicio');
