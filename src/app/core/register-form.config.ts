@@ -28,14 +28,14 @@ export function getRegisterForm(): FormConfig {
         validators: [Validators.required],
       },
       {
-        label: 'Usuário',
-        formControlName: 'user',
+        label: 'Login',
+        formControlName: 'login',
         type: 'text',
         required: true,
         errorMessages: {
-          required: 'Usuário é um campo obrigatório',
+          required: 'Login é um campo obrigatório',
         },
-        placeholder: 'Digite o seu usuário',
+        placeholder: 'Digite o seu login',
         validators: [Validators.required],
       },
       {
@@ -58,17 +58,6 @@ export function getRegisterForm(): FormConfig {
           required: 'Senha é um campo obrigatório',
         },
         placeholder: 'Digite a sua senha',
-        validators: [Validators.required],
-      },
-      {
-        label: 'Confirmar senha',
-        formControlName: 'password',
-        type: 'password',
-        required: true,
-        errorMessages: {
-          required: 'Confirmar senha é um campo obrigatório',
-        },
-        placeholder: 'Confirme a sua senha',
         validators: [Validators.required],
       },
     ],
