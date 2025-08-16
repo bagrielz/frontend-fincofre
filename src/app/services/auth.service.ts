@@ -1,7 +1,12 @@
 import { Injectable, signal } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Observable, tap } from 'rxjs';
+import { UserService } from './user.service';
+
+interface AuthResponse {
+  token: string;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -10,10 +15,24 @@ export class AuthService {
   private isAuthenticated = signal<boolean>(false);
   private apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private userService: UserService) {}
 
-  login(login: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/auth/login`, { login, password });
+  authenticate(
+    login: string,
+    password: string
+  ): Observable<HttpResponse<AuthResponse>> {
+    return this.http
+      .post<AuthResponse>(
+        `${this.apiUrl}/auth/login`,
+        { login, password },
+        { observe: 'response' }
+      )
+      .pipe(
+        tap((res) => {
+          const authToken = res.body?.token || '';
+          this.userService.saveToken(authToken);
+        })
+      );
   }
 
   logout() {
