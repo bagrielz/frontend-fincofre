@@ -12,7 +12,6 @@ export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginFormComponent },
   { path: 'cadastrar', component: RegisterFormComponent },
-  { path: 'perfil', component: ProfileComponent },
   {
     path: '',
     component: LayoutComponent,
@@ -21,6 +20,7 @@ export const routes: Routes = [
       { path: 'inicio', component: DashboardComponent },
       { path: 'adicionar-gasto', component: AddSpentFormComponent },
       { path: 'editar-gasto', component: UpdateSpentFormComponent },
+      { path: 'perfil', component: ProfileComponent },
     ],
   },
 ];

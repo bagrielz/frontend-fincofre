@@ -1,8 +1,10 @@
 import { Injectable, signal } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
-import { UserService } from './user.service';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { TokenService } from './token.service';
+import { jwtDecode } from 'jwt-decode';
+import { User } from '../shared/models/user.interface';
 
 interface AuthResponse {
   token: string;
@@ -12,38 +14,51 @@ interface AuthResponse {
   providedIn: 'root',
 })
 export class AuthService {
-  private isAuthenticated = signal<boolean>(false);
   private apiUrl = environment.apiUrl;
+  private userSubject = new BehaviorSubject<User | null>(null);
 
-  constructor(private http: HttpClient, private userService: UserService) {}
+  constructor(private http: HttpClient, private tokenService: TokenService) {
+    if (this.tokenService.hasToken()) {
+      this.decodeJWT();
+    }
+  }
+
+  decodeJWT() {
+    const token = this.tokenService.returnToken();
+    const user = jwtDecode<User>(token);
+    this.userSubject.next(user);
+  }
 
   authenticate(
     login: string,
     password: string
   ): Observable<HttpResponse<AuthResponse>> {
-    return this.http
-      .post<AuthResponse>(
-        `${this.apiUrl}/auth/login`,
-        { login, password },
-        { observe: 'response' }
-      )
-      .pipe(
-        tap((res) => {
-          const authToken = res.body?.token || '';
-          this.userService.saveToken(authToken);
-        })
-      );
+    return this.http.post<AuthResponse>(
+      `${this.apiUrl}/auth/login`,
+      { login, password },
+      { observe: 'response' }
+    );
+  }
+
+  saveToken(token: string) {
+    this.tokenService.saveToken(token);
+    this.decodeJWT();
+  }
+
+  getUser() {
+    return this.userSubject.asObservable();
+  }
+
+  getCurrentUser() {
+    return this.userSubject.value;
+  }
+
+  isLoggedIn(): boolean {
+    return this.tokenService.hasToken();
   }
 
   logout() {
-    this.isAuthenticated.set(false);
-  }
-
-  setAuthenticated(value: boolean) {
-    this.isAuthenticated.set(value);
-  }
-
-  getIsAutheticated() {
-    return this.isAuthenticated();
+    this.tokenService.deleteToken();
+    this.userSubject.next(null);
   }
 }
