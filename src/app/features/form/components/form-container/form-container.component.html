@@ -17,9 +17,12 @@
             @if (formConfig.buttons) { @for (btn of formConfig.buttons; track
             $index) {
             <div class="button-wrapper">
-              <app-button [type]="btn.type" [routerLink]="btn.link">{{
-                btn.text
-              }}</app-button>
+              <app-button [type]="btn.type" [routerLink]="btn.link">
+                @if (btn.icon) {
+                <img [src]="btn.icon" alt="" />
+                }
+                {{ btn.text }}
+              </app-button>
             </div>
             } }
           </div>

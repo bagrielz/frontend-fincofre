@@ -7,6 +7,17 @@ export function getAddSpentFormConfig(): FormConfig {
     highlight: 'Adicionar gasto',
     subtitle: 'Novo gasto',
     description: 'Adicione um novo gasto preenchendo todos os campos abaixo.',
+    buttons: [
+      {
+        type: 'primary',
+        text: 'Adicionar',
+        icon: 'icons/plus-circle.svg',
+      },
+      {
+        type: 'secondary',
+        text: 'Cancelar',
+      },
+    ],
     fields: [
       {
         label: 'Nome do gasto',
