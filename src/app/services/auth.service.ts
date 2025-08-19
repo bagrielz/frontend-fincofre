@@ -25,6 +25,9 @@ export class AuthService {
 
   decodeJWT() {
     const token = this.tokenService.returnToken();
+    if (!token) {
+      return console.log('Token vazio');
+    }
     const user = jwtDecode<User>(token);
     this.userSubject.next(user);
   }

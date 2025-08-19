@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { StorageService } from './storage.service';
 
 const KEY = 'token';
 
@@ -6,16 +7,18 @@ const KEY = 'token';
   providedIn: 'root',
 })
 export class TokenService {
+  constructor(private storageService: StorageService) {}
+
   saveToken(token: string) {
-    return localStorage.setItem(KEY, token);
+    this.storageService.setItem(KEY, token);
   }
 
   deleteToken() {
-    return localStorage.removeItem(KEY);
+    this.storageService.removeItem(KEY);
   }
 
-  returnToken() {
-    return localStorage.getItem(KEY) ?? '';
+  returnToken(): string | null {
+    return this.storageService.getItem(KEY);
   }
 
   hasToken() {
