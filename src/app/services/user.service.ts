@@ -16,7 +16,7 @@ export class UserService {
     return this.http.post<User>(`${this.apiUrl}/usuarios/cadastrar`, user);
   }
 
-  get(token: string): Observable<User> {
+  get(token: string | null): Observable<User> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
