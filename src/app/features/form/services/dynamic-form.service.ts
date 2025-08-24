@@ -34,4 +34,13 @@ export class DynamicFormService {
 
     return this.fb.group(formControls, formOptions);
   }
+
+  createFormWithData(formKey: string, data: any) {
+    const config = this.getFormConfig(formKey);
+    const formGroup = this.createFormGroup(config);
+
+    formGroup.patchValue(data);
+
+    return formGroup;
+  }
 }

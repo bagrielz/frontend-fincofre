@@ -6,8 +6,6 @@ import { FormConfig } from '../../../../shared/models/form-config.interface';
 import { getUpdateSpentForm } from '../../../../core/update-spent-form.config';
 import { getProfileFormConfig } from '../../../../core/profile-form.config';
 
-let forms: Array<FormConfig> = [getUpdateSpentForm(), getProfileFormConfig()];
-
 @Component({
   selector: 'app-form-fields',
   imports: [CommonModule, ReactiveFormsModule],

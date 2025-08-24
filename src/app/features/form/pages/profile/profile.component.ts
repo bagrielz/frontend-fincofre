@@ -28,15 +28,14 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.token = this.tokenService.returnToken();
-    this.userService.get(this.token).subscribe((user) => {
-      this.user = user;
-      this.name = user.name;
-    });
-  }
-
-  loadForm() {
-    this.formConfig = this.dynamicFormService.getFormConfig('profileForm');
-    this.formGroup = this.dynamicFormService.createFormGroup(this.formConfig);
+    // this.token = this.tokenService.returnToken();
+    // this.userService.get(this.token).subscribe((user) => {
+    //   console.log(user);
+    //   this.user = user;
+    //   this.formGroup = this.dynamicFormService.createFormWithData(
+    //     'profileForm',
+    //     user
+    //   );
+    // });
   }
 }

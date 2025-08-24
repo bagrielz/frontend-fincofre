@@ -28,6 +28,22 @@ export class FormInitializerService {
     return { form, formConfig: finalConfig };
   }
 
+  initializeFormWithData(
+    formKey: string,
+    data: any
+  ): { form: FormGroup; formConfig: FormConfig } {
+    const formConfig = this.getFormConfigByKey(formKey);
+
+    this.dynamicFormService.registerFormConfig(formKey, () => formConfig);
+
+    const finalConfig = this.dynamicFormService.getFormConfig(formKey);
+    const form = this.dynamicFormService.createFormGroup(finalConfig);
+
+    form.patchValue(data);
+
+    return { form, formConfig: finalConfig };
+  }
+
   private getFormConfigByKey(key: string) {
     if (key === 'loginForm') return getLoginForm();
     if (key === 'registerForm') return getRegisterForm();
