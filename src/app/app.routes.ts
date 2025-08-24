@@ -6,6 +6,7 @@ import { RegisterFormComponent } from './features/form/pages/register-form/regis
 import { UpdateSpentFormComponent } from './features/form/pages/update-spent-form/update-spent-form.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LayoutComponent } from './shared/components/layout/layout.component';
+import { ProfileComponent } from './features/form/pages/profile/profile.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -19,6 +20,7 @@ export const routes: Routes = [
       { path: 'inicio', component: DashboardComponent },
       { path: 'adicionar-gasto', component: AddSpentFormComponent },
       { path: 'editar-gasto', component: UpdateSpentFormComponent },
+      { path: 'perfil', component: ProfileComponent },
     ],
   },
 ];

@@ -9,7 +9,7 @@
       class="input-form"
       [ngClass]="{
         custom: field.type !== 'text',
-        'input-error': hasError(field.formControlName)
+        'input-error': hasError(field.formControlName, field)
       }"
       [formControlName]="field.formControlName"
       [placeholder]="field.placeholder || ''"
@@ -37,7 +37,7 @@
     />
     }
   </div>
-  @if (hasError(field.formControlName)) {
+  @if (hasError(field.formControlName, field)) {
   <div class="error">{{ getErrorMessage(field.formControlName, field) }}</div>
   }
 </div>

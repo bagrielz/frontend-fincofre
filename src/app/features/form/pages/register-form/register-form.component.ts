@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { InitialFormContainerComponent } from '../../components/initial-form-container/initial-form-container.component';
 import { FormService } from '../../../../services/form.service';
-import { RegisterService } from '../../../../services/register.service';
 import { User } from '../../../../shared/models/user.interface';
+import { UserService } from '../../../../services/user.service';
 
 @Component({
   selector: 'app-register-form',
@@ -13,7 +13,7 @@ import { User } from '../../../../shared/models/user.interface';
 export class RegisterFormComponent {
   constructor(
     private formService: FormService,
-    private registerService: RegisterService
+    private userService: UserService
   ) {}
 
   handleRegisterSubmit = () => {
@@ -21,7 +21,7 @@ export class RegisterFormComponent {
 
     if (formRegister?.valid) {
       const newRegister = formRegister.getRawValue() as User;
-      this.registerService.register(newRegister).subscribe({
+      this.userService.register(newRegister).subscribe({
         next: (res) => {
           console.log('Cadastro realizado com sucesso!', res);
         },

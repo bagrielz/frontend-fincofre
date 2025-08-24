@@ -15,10 +15,16 @@ export class LoginFormComponent {
   handleLoginSubmit = (formValue: any) => {
     const { login, password } = formValue;
 
-    this.authService.login(login, password).subscribe({
-      next: () => {
-        this.authService.setAuthenticated(true);
-        this.router.navigateByUrl('/inicio');
+    this.authService.authenticate(login, password).subscribe({
+      next: (res) => {
+        const token = res.body?.token;
+
+        if (token) {
+          this.authService.saveToken(token);
+          this.router.navigateByUrl('/inicio');
+        } else {
+          console.error('Token não encontrado na resposta');
+        }
       },
       error: (err) => {
         console.log('Erro no login', err);

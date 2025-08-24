@@ -1,30 +1,67 @@
 import { Injectable, signal } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { TokenService } from './token.service';
+import { jwtDecode } from 'jwt-decode';
+import { User } from '../shared/models/user.interface';
+
+interface AuthResponse {
+  token: string;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private isAuthenticated = signal<boolean>(false);
   private apiUrl = environment.apiUrl;
+  private userSubject = new BehaviorSubject<User | null>(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private tokenService: TokenService) {
+    if (this.tokenService.hasToken()) {
+      this.decodeJWT();
+    }
+  }
 
-  login(login: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/auth/login`, { login, password });
+  decodeJWT() {
+    const token = this.tokenService.returnToken();
+    if (!token) {
+      return console.log('Token vazio');
+    }
+    const user = jwtDecode<User>(token);
+    this.userSubject.next(user);
+  }
+
+  authenticate(
+    login: string,
+    password: string
+  ): Observable<HttpResponse<AuthResponse>> {
+    return this.http.post<AuthResponse>(
+      `${this.apiUrl}/auth/login`,
+      { login, password },
+      { observe: 'response' }
+    );
+  }
+
+  saveToken(token: string) {
+    this.tokenService.saveToken(token);
+    this.decodeJWT();
+  }
+
+  getUser() {
+    return this.userSubject.asObservable();
+  }
+
+  getCurrentUser() {
+    return this.userSubject.value;
+  }
+
+  isLoggedIn(): boolean {
+    return this.tokenService.hasToken();
   }
 
   logout() {
-    this.isAuthenticated.set(false);
-  }
-
-  setAuthenticated(value: boolean) {
-    this.isAuthenticated.set(value);
-  }
-
-  getIsAutheticated() {
-    return this.isAuthenticated();
+    this.tokenService.deleteToken();
+    this.userSubject.next(null);
   }
 }

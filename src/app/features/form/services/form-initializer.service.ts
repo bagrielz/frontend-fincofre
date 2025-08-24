@@ -6,6 +6,7 @@ import { getLoginForm } from '../../../core/login-form.config';
 import { getRegisterForm } from '../../../core/register-form.config';
 import { getAddSpentFormConfig } from '../../../core/add-spent-form.config';
 import { getUpdateSpentForm } from '../../../core/update-spent-form.config';
+import { getProfileFormConfig } from '../../../core/profile-form.config';
 
 @Injectable({
   providedIn: 'root',
@@ -27,11 +28,28 @@ export class FormInitializerService {
     return { form, formConfig: finalConfig };
   }
 
+  initializeFormWithData(
+    formKey: string,
+    data: any
+  ): { form: FormGroup; formConfig: FormConfig } {
+    const formConfig = this.getFormConfigByKey(formKey);
+
+    this.dynamicFormService.registerFormConfig(formKey, () => formConfig);
+
+    const finalConfig = this.dynamicFormService.getFormConfig(formKey);
+    const form = this.dynamicFormService.createFormGroup(finalConfig);
+
+    form.patchValue(data);
+
+    return { form, formConfig: finalConfig };
+  }
+
   private getFormConfigByKey(key: string) {
     if (key === 'loginForm') return getLoginForm();
     if (key === 'registerForm') return getRegisterForm();
     if (key === 'addSpentForm') return getAddSpentFormConfig();
     if (key === 'updateSpentForm') return getUpdateSpentForm();
+    if (key === 'profileForm') return getProfileFormConfig();
 
     throw new Error(`Formulário "${key}" não encontrado`);
   }
