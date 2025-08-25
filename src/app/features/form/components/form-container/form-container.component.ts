@@ -40,12 +40,10 @@ export class FormContainerComponent {
   ngOnInit(): void {
     const formKey = this.inputFormGroup();
     const formWithData = this.formWithData();
-    console.log(formWithData);
 
     if (formWithData) {
       this.token = this.tokenService.returnToken();
       this.userService.get(this.token).subscribe((user) => {
-        console.log(user);
         this.user = user;
 
         const { form, formConfig } =
