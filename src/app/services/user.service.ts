@@ -24,7 +24,7 @@ export class UserService {
     return this.http.get<User>(`${this.apiUrl}/usuarios/detalhar`, { headers });
   }
 
-  put(token: string | null): Observable<User> {
+  update(token: string | null): Observable<User> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
