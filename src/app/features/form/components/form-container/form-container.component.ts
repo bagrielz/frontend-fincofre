@@ -30,6 +30,7 @@ export class FormContainerComponent {
 
   inputFormGroup = input.required<string>();
   formWithData = input<boolean>();
+  onSubmit = input.required<(formValue: any) => void>();
 
   constructor(
     private formInitializer: FormInitializerService,
@@ -56,5 +57,9 @@ export class FormContainerComponent {
       this.form = form;
       this.formConfig = formConfig;
     }
+  }
+
+  submitForm() {
+    this.onSubmit()(this.form.value);
   }
 }

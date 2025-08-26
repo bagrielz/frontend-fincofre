@@ -13,7 +13,7 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
   user!: User;
   token!: string | null;
   name!: string;
@@ -27,15 +27,8 @@ export class ProfileComponent implements OnInit {
     private dynamicFormService: DynamicFormService
   ) {}
 
-  ngOnInit(): void {
-    // this.token = this.tokenService.returnToken();
-    // this.userService.get(this.token).subscribe((user) => {
-    //   console.log(user);
-    //   this.user = user;
-    //   this.formGroup = this.dynamicFormService.createFormWithData(
-    //     'profileForm',
-    //     user
-    //   );
-    // });
-  }
+  updateUserData = (formValue: any) => {
+    console.log('teste');
+    console.log(formValue);
+  };
 }

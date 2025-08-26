@@ -12,7 +12,7 @@
           [description]="formConfig.description"
         />
 
-        <form [formGroup]="form">
+        <form [formGroup]="form" (ngSubmit)="submitForm()">
           <app-form-fields [form]="form" [fields]="formConfig.fields" />
           <div class="buttons">
             @if (formConfig.buttons) { @for (btn of formConfig.buttons; track
