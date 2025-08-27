@@ -24,12 +24,12 @@ export class UserService {
     return this.http.get<User>(`${this.apiUrl}/usuarios/detalhar`, { headers });
   }
 
-  update(token: string | null): Observable<User> {
+  update(token: string | null, user: User): Observable<User> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
 
-    return this.http.patch<User>(`${this.apiUrl}/usuarios/alterar`, {
+    return this.http.patch<User>(`${this.apiUrl}/usuarios/atualizar`, user, {
       headers,
     });
   }
