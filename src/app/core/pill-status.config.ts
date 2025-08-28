@@ -1,4 +1,4 @@
-import { PillConfig } from '../shared/models/pill-config.interface';
+import { PillConfig } from '../shared/interfaces/pill-config.interface';
 
 export const PillStatus: PillConfig[] = [
   { type: 'waiting', text: 'Aguardando' },

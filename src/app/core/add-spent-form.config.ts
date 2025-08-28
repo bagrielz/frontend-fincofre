@@ -1,5 +1,5 @@
 import { Validators } from '@angular/forms';
-import { FormConfig } from '../shared/models/form-config.interface';
+import { FormConfig } from '../shared/interfaces/form-config.interface';
 
 export function getAddSpentFormConfig(): FormConfig {
   return {

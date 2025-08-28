@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { PillConfig } from '../../models/pill-config.interface';
+import { PillConfig } from '../../interfaces/pill-config.interface';
 
 @Component({
   selector: 'app-pill',

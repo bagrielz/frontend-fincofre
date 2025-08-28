@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
-import { FormConfig } from '../../../../shared/models/form-config.interface';
+import { FormConfig } from '../../../../shared/interfaces/form-config.interface';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormFieldsComponent } from '../form-fields/form-fields.component';
 import { FormInitializerService } from '../../services/form-initializer.service';

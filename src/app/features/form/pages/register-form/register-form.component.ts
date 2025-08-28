@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { InitialFormContainerComponent } from '../../components/initial-form-container/initial-form-container.component';
 import { FormService } from '../../../../services/form.service';
-import { User } from '../../../../shared/models/user.interface';
+import { User } from '../../../../shared/interfaces/user.interface';
 import { UserService } from '../../../../services/user.service';
 import { Router } from '@angular/router';
 
