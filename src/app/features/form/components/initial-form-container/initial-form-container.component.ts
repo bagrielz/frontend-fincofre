@@ -1,4 +1,4 @@
-import { Component, ErrorHandler, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { FormConfig } from '../../../../shared/models/form-config.interface';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
