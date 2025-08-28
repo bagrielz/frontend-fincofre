@@ -25,7 +25,7 @@ export class RegisterFormComponent {
       const newRegister = formRegister.getRawValue() as User;
       this.userService.register(newRegister).subscribe({
         next: () => {
-          this.router.navigate(['/inicio']);
+          this.router.navigate(['/login']);
         },
         error: (err) => {
           console.error('Erro ao realizar cadastro', err);
