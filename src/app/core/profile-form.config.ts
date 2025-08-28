@@ -3,9 +3,10 @@ import { FormConfig } from '../shared/models/form-config.interface';
 export function getProfileFormConfig(): FormConfig {
   return {
     title: 'Meu perfil >',
-    highlight: 'Informações pessoais',
+    highlight: 'Informações',
     subtitle: 'Deseja alterar suas informações?',
-    description: 'Fique à vontade para alterar as informações que você quer.',
+    description:
+      'Aqui você pode alterar as suas informações pessoais e as suas informações de acesso.',
     buttons: [
       {
         type: 'primary',
@@ -36,6 +37,7 @@ export function getProfileFormConfig(): FormConfig {
         label: 'Senha',
         formControlName: 'password',
         type: 'password',
+        placeholder: 'Digite sua nova senha',
       },
     ],
   };

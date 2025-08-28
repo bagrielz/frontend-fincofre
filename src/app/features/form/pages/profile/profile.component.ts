@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormContainerComponent } from '../../components/form-container/form-container.component';
 import { UserService } from '../../../../services/user.service';
 import { TokenService } from '../../../../services/token.service';
-import { User } from '../../../../shared/models/user.interface';
-import { DynamicFormService } from '../../services/dynamic-form.service';
-import { FormConfig } from '../../../../shared/models/form-config.interface';
-import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -13,29 +10,27 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
-export class ProfileComponent implements OnInit {
-  user!: User;
-  token!: string | null;
-  name!: string;
-
-  formConfig!: FormConfig;
-  formGroup!: FormGroup;
-
+export class ProfileComponent {
   constructor(
     private tokenService: TokenService,
     private userService: UserService,
-    private dynamicFormService: DynamicFormService
+    private router: Router
   ) {}
 
-  ngOnInit(): void {
-    // this.token = this.tokenService.returnToken();
-    // this.userService.get(this.token).subscribe((user) => {
-    //   console.log(user);
-    //   this.user = user;
-    //   this.formGroup = this.dynamicFormService.createFormWithData(
-    //     'profileForm',
-    //     user
-    //   );
-    // });
-  }
+  updateUserData = (formValue: any) => {
+    const token = this.tokenService.returnToken();
+
+    this.userService.update(token, formValue).subscribe({
+      next: () => {
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate(['/perfil']);
+          });
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  };
 }

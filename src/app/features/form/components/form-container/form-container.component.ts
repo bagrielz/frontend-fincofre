@@ -30,6 +30,7 @@ export class FormContainerComponent {
 
   inputFormGroup = input.required<string>();
   formWithData = input<boolean>();
+  onSubmit = input.required<(formValue: any) => void>();
 
   constructor(
     private formInitializer: FormInitializerService,
@@ -40,12 +41,10 @@ export class FormContainerComponent {
   ngOnInit(): void {
     const formKey = this.inputFormGroup();
     const formWithData = this.formWithData();
-    console.log(formWithData);
 
     if (formWithData) {
       this.token = this.tokenService.returnToken();
       this.userService.get(this.token).subscribe((user) => {
-        console.log(user);
         this.user = user;
 
         const { form, formConfig } =
@@ -58,5 +57,9 @@ export class FormContainerComponent {
       this.form = form;
       this.formConfig = formConfig;
     }
+  }
+
+  submitForm() {
+    this.onSubmit()(this.form.value);
   }
 }

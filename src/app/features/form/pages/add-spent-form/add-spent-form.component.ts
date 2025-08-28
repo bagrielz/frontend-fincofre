@@ -7,4 +7,8 @@ import { FormContainerComponent } from '../../components/form-container/form-con
   templateUrl: './add-spent-form.component.html',
   styleUrl: './add-spent-form.component.css',
 })
-export class AddSpentFormComponent {}
+export class AddSpentFormComponent {
+  sendSpentData = (formValue: any) => {
+    console.log(formValue);
+  };
+}
