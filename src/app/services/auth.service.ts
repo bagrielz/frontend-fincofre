@@ -4,7 +4,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { TokenService } from './token.service';
 import { jwtDecode } from 'jwt-decode';
-import { User } from '../shared/models/user.interface';
+import { User } from '../shared/interfaces/user.interface';
 
 interface AuthResponse {
   token: string;

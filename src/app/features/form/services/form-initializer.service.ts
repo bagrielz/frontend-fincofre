@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DynamicFormService } from './dynamic-form.service';
-import { FormConfig } from '../../../shared/models/form-config.interface';
+import { FormConfig } from '../../../shared/interfaces/form-config.interface';
 import { FormGroup } from '@angular/forms';
 import { getLoginForm } from '../../../core/login-form.config';
 import { getRegisterForm } from '../../../core/register-form.config';

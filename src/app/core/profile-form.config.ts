@@ -1,4 +1,4 @@
-import { FormConfig } from '../shared/models/form-config.interface';
+import { FormConfig } from '../shared/interfaces/form-config.interface';
 
 export function getProfileFormConfig(): FormConfig {
   return {
