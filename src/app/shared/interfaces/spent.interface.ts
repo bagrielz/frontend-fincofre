@@ -1,5 +1,7 @@
 import { Category } from '../enums/category.enum';
+import { Method } from '../enums/method.enum';
 import { Status } from '../enums/status.enum';
+import { Type } from '../enums/type.enum';
 
 export interface Spent {
   id: number;
@@ -9,7 +11,7 @@ export interface Spent {
   statusValue: Status;
   value: number;
   category: Category;
-  type: string;
+  type: Type;
   account: string;
-  method: string;
+  method: Method;
 }
