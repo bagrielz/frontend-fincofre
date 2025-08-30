@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { TokenService } from '../../../core/services/token.service';
-import { UserService } from '../../../core/services/user.service';
-import { EntityFormComponent } from '../../../shared/components/form/entity-form/entity-form.component';
+import { TokenService } from '../../core/services/token.service';
+import { UserService } from '../../core/services/user.service';
+import { EntityFormComponent } from '../../shared/components/form/entity-form/entity-form.component';
 
 @Component({
   selector: 'app-profile',

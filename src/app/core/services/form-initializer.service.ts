@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { DynamicFormService } from './dynamic-form.service';
 import { FormConfig } from '../../shared/models/form-config.model';
 import { FormGroup } from '@angular/forms';
-import { getLoginForm } from '../config/login-form.config';
-import { getRegisterForm } from '../config/register-form.config';
-import { getAddSpentFormConfig } from '../config/add-spent-form.config';
-import { getUpdateSpentForm } from '../config/update-spent-form.config';
-import { getProfileFormConfig } from '../config/profile-form.config';
+import { getLoginFormConfig } from '../config/login.config';
+import { getRegisterFormConfig } from '../config/register.config';
+import { getAddSpentFormConfig } from '../config/add-spent.config';
+import { getUpdateSpentFormConfig } from '../config/update-spent.config';
+import { getProfileFormConfig } from '../config/profile.config';
 
 @Injectable({
   providedIn: 'root',
@@ -45,10 +45,10 @@ export class FormInitializerService {
   }
 
   private getFormConfigByKey(key: string) {
-    if (key === 'loginForm') return getLoginForm();
-    if (key === 'registerForm') return getRegisterForm();
+    if (key === 'loginForm') return getLoginFormConfig();
+    if (key === 'registerForm') return getRegisterFormConfig();
     if (key === 'addSpentForm') return getAddSpentFormConfig();
-    if (key === 'updateSpentForm') return getUpdateSpentForm();
+    if (key === 'updateSpentForm') return getUpdateSpentFormConfig();
     if (key === 'profileForm') return getProfileFormConfig();
 
     throw new Error(`Formulário "${key}" não encontrado`);

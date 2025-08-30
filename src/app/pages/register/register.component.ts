@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { AuthFormComponent } from '../../../shared/components/form/auth-form/auth-form.component';
-import { FormService } from '../../../core/services/form.service';
-import { UserService } from '../../../core/services/user.service';
-import { User } from '../../../shared/models/user.model';
+import { AuthFormComponent } from '../../shared/components/form/auth-form/auth-form.component';
+import { FormService } from '../../core/services/form.service';
+import { UserService } from '../../core/services/user.service';
+import { User } from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-register-form',
   imports: [AuthFormComponent],
-  templateUrl: './register-form.component.html',
-  styleUrl: './register-form.component.css',
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.css',
 })
-export class RegisterFormComponent {
+export class RegisterComponent {
   constructor(
     private formService: FormService,
     private userService: UserService

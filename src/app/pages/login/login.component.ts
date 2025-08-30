@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthFormComponent } from '../../../shared/components/form/auth-form/auth-form.component';
-import { AuthService } from '../../../core/services/auth.service';
+import { AuthFormComponent } from '../../shared/components/form/auth-form/auth-form.component';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
   imports: [AuthFormComponent],
-  templateUrl: './login-form.component.html',
-  styleUrl: './login-form.component.css',
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css',
 })
-export class LoginFormComponent {
+export class LoginComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
   handleLoginSubmit = (formValue: any) => {

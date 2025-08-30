@@ -1,25 +1,25 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { AddSpentFormComponent } from './pages/form/add-spent-form/add-spent-form.component';
-import { LoginFormComponent } from './pages/form/login-form/login-form.component';
-import { UpdateSpentFormComponent } from './pages/form/update-spent-form/update-spent-form.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { LayoutComponent } from './shared/components/layout/layout.component';
-import { ProfileComponent } from './pages/form/profile/profile.component';
-import { RegisterFormComponent } from './pages/form/register-form/register-form.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { AddSpentComponent } from './pages/add-spent/add-spent.component';
+import { UpdateSpentComponent } from './pages/update-spent/update-spent.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginFormComponent },
-  { path: 'cadastrar', component: RegisterFormComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'cadastrar', component: RegisterComponent },
   {
     path: '',
     component: LayoutComponent,
     canActivate: [AuthGuard],
     children: [
       { path: 'inicio', component: DashboardComponent },
-      { path: 'adicionar-gasto', component: AddSpentFormComponent },
-      { path: 'editar-gasto', component: UpdateSpentFormComponent },
+      { path: 'adicionar-gasto', component: AddSpentComponent },
+      { path: 'editar-gasto', component: UpdateSpentComponent },
       { path: 'perfil', component: ProfileComponent },
     ],
   },

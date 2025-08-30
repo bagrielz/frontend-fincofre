@@ -1,7 +1,7 @@
 import { Validators } from '@angular/forms';
 import { FormConfig } from '../../shared/models/form-config.model';
 
-export function getUpdateSpentForm(): FormConfig {
+export function getUpdateSpentFormConfig(): FormConfig {
   return {
     title: 'Gastos >',
     highlight: 'Editar gasto',
