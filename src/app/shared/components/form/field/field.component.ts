@@ -1,5 +1,9 @@
 import { Component, input } from '@angular/core';
+<<<<<<< HEAD:src/app/features/form/components/form-fields/form-fields.component.ts
+import { FormFieldBase } from '../../../../shared/interfaces/form-field-base.interface';
+=======
 import { FormFieldBase } from '../../../models/form-field-base.model';
+>>>>>>> main:src/app/shared/components/form/field/field.component.ts
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
