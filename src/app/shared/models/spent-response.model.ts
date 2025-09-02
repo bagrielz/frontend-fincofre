@@ -1,4 +1,4 @@
-import { Spent } from './spent.interface';
+import { Spent } from './spent.model';
 
 export interface SpentResponse {
   spents: Spent[];

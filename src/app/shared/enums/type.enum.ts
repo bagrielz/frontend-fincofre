@@ -3,7 +3,7 @@ export enum Type {
   VARIAVEL = 'VARIÁVEL',
 }
 
-export const MethodLabel: Record<Type, string> = {
+export const TypeLabel: Record<Type, string> = {
   [Type.FIXO]: 'Fixo',
   [Type.VARIAVEL]: 'Variável',
 };

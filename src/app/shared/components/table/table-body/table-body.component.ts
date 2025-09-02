@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CheckboxComponent } from '../../checkbox/checkbox.component';
 import { TokenService } from '../../../../core/services/token.service';
-import { Spent } from '../../../models/spent.interface';
+import { Spent } from '../../../models/spent.model';
 import { SpentService } from '../../../../core/services/spent.service';
 import { SpentResponse } from '../../../models/spent-response.model';
+import { StatusLabel } from '../../../enums/status.enum';
+import { CategoryLabel } from '../../../enums/category.enum';
+import { MethodLabel } from '../../../enums/method.enum';
+import { TypeLabel } from '../../../enums/type.enum';
 
 @Component({
   selector: 'app-table-body',
@@ -15,6 +19,11 @@ export class TableBodyComponent implements OnInit {
   token!: string | null;
   spents: Spent[] = [];
   total: number = 0;
+
+  StatusLabel = StatusLabel;
+  CategoryLabel = CategoryLabel;
+  MethodLabel = MethodLabel;
+  TypeLabel = TypeLabel;
 
   data = [
     '01/01/2025',

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
-import { Spent } from '../../shared/models/spent.interface';
+import { Spent } from '../../shared/models/spent.model';
 import { SpentResponse } from '../../shared/models/spent-response.model';
 
 function getHeaders(token: string | null): HttpHeaders {
