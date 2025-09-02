@@ -1,12 +1,17 @@
 <div role="rowgroup">
+  @for (s of spents; track trackById(s.id, s)) {
   <div role="row" class="table-row">
     <div role="cell">
       <app-checkbox />
     </div>
-    @for (d of data; track $index) {
-    <div class="cell" role="cell">
-      {{ d }}
-    </div>
-    }
+    <div class="cell" role="cell">{{ s.date }}</div>
+    <div class="cell" role="cell">{{ s.spent }}</div>
+    <div class="cell" role="cell">{{ s.statusValue }}</div>
+    <div class="cell" role="cell">R$ {{ s.value }}</div>
+    <div class="cell" role="cell">{{ s.category }}</div>
+    <div class="cell" role="cell">{{ s.account }}</div>
+    <div class="cell" role="cell">{{ s.type }}</div>
+    <div class="cell" role="cell">{{ s.method }}</div>
   </div>
+  }
 </div>

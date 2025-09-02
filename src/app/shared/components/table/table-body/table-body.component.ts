@@ -3,6 +3,7 @@ import { CheckboxComponent } from '../../checkbox/checkbox.component';
 import { TokenService } from '../../../../core/services/token.service';
 import { Spent } from '../../../models/spent.interface';
 import { SpentService } from '../../../../core/services/spent.service';
+import { SpentResponse } from '../../../models/spent-response.model';
 
 @Component({
   selector: 'app-table-body',
@@ -13,6 +14,7 @@ import { SpentService } from '../../../../core/services/spent.service';
 export class TableBodyComponent implements OnInit {
   token!: string | null;
   spents: Spent[] = [];
+  total: number = 0;
 
   data = [
     '01/01/2025',
@@ -32,11 +34,15 @@ export class TableBodyComponent implements OnInit {
 
   ngOnInit(): void {
     this.token = this.tokenService.returnToken();
-    this.spentService.getAllSpents(this.token).subscribe((spents) => {
-      this.spents = spents;
-      console.log('Dados carregados: ', this.spents);
-    });
+    this.spentService
+      .getAllSpents(this.token)
+      .subscribe((response: SpentResponse) => {
+        this.spents = response.spents;
+        this.total = response.total;
+      });
+  }
 
-    console.log(this.spents);
+  trackById(index: number, item: Spent): number {
+    return item.id;
   }
 }

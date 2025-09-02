@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { Spent } from '../../shared/models/spent.interface';
+import { SpentResponse } from '../../shared/models/spent-response.model';
 
 function getHeaders(token: string | null): HttpHeaders {
   return new HttpHeaders({
@@ -18,9 +19,11 @@ export class SpentService {
 
   constructor(private http: HttpClient) {}
 
-  getAllSpents(token: string | null): Observable<Spent[]> {
+  getAllSpents(token: string | null): Observable<SpentResponse> {
     const headers = getHeaders(token);
 
-    return this.http.get<Spent[]>(`${this.apiUrl}/gastos/listar`, { headers });
+    return this.http.get<SpentResponse>(`${this.apiUrl}/gastos/listar`, {
+      headers,
+    });
   }
 }
