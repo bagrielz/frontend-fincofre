@@ -18,9 +18,9 @@ export class SpentService {
 
   constructor(private http: HttpClient) {}
 
-  getAllSpents(token: string | null): Observable<Spent> {
+  getAllSpents(token: string | null): Observable<Spent[]> {
     const headers = getHeaders(token);
 
-    return this.http.get<Spent>(`${this.apiUrl}/gastos/listar`, { headers });
+    return this.http.get<Spent[]>(`${this.apiUrl}/gastos/listar`, { headers });
   }
 }
