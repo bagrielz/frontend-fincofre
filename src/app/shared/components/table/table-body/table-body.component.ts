@@ -8,10 +8,11 @@ import { StatusLabel } from '../../../enums/status.enum';
 import { CategoryLabel } from '../../../enums/category.enum';
 import { MethodLabel } from '../../../enums/method.enum';
 import { TypeLabel } from '../../../enums/type.enum';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-table-body',
-  imports: [CheckboxComponent],
+  imports: [CheckboxComponent, CurrencyPipe],
   templateUrl: './table-body.component.html',
   styleUrl: './table-body.component.css',
 })

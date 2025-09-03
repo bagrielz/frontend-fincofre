@@ -7,7 +7,9 @@
     <div class="cell" role="cell">{{ s.date }}</div>
     <div class="cell" role="cell">{{ s.spent }}</div>
     <div class="cell" role="cell">{{ StatusLabel[s.status] }}</div>
-    <div class="cell" role="cell">R$ {{ s.value }}</div>
+    <div class="cell" role="cell">
+      {{ s.value | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR" }}
+    </div>
     <div class="cell" role="cell">{{ CategoryLabel[s.category] }}</div>
     <div class="cell" role="cell">{{ s.account }}</div>
     <div class="cell" role="cell">{{ TypeLabel[s.type] }}</div>
