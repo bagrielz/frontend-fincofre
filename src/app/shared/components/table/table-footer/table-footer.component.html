@@ -1,5 +1,7 @@
 <div role="rowgroup">
   <div role="row" class="table-row">
-    <div role="cell">Total: R$ 100,00</div>
+    <div role="cell">
+      Total: {{ total | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR" }}
+    </div>
   </div>
 </div>
