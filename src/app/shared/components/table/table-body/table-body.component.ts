@@ -19,7 +19,6 @@ import { CurrencyPipe } from '@angular/common';
 export class TableBodyComponent implements OnInit {
   token!: string | null;
   spents: Spent[] = [];
-  total: number = 0;
 
   StatusLabel = StatusLabel;
   CategoryLabel = CategoryLabel;
@@ -44,12 +43,11 @@ export class TableBodyComponent implements OnInit {
 
   ngOnInit(): void {
     this.token = this.tokenService.returnToken();
-    this.spentService
-      .getAllSpents(this.token)
-      .subscribe((response: SpentResponse) => {
-        this.spents = response.spents;
-        this.total = response.total;
-      });
+    this.spentService.getAllSpents(this.token);
+
+    this.spentService.spentsResponse$.subscribe((res) => {
+      this.spents = res.spents;
+    });
   }
 
   trackById(index: number, item: Spent): number {
