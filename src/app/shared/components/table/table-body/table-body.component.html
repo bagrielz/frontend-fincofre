@@ -1,5 +1,5 @@
 <div role="rowgroup">
-  @for (s of spents; track trackById(s.id, s)) {
+  @for (s of spentsResponse()?.spents; track trackById(s)) {
   <div role="row" class="table-row">
     <div role="cell">
       <app-checkbox />

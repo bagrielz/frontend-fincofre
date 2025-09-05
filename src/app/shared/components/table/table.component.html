@@ -9,7 +9,7 @@
 
   <div role="table" class="custom-table">
     <app-table-head />
-    <app-table-body />
+    <app-table-body [spentsResponse]="spentsResponse$ | async" />
     <app-table-footer />
   </div>
 </div>
