@@ -1,3 +1,10 @@
 <div class="tabs">
-  <app-single-tab />
+  @for (tab of tabs; track $index) {
+  <app-single-tab
+    [label]="tab"
+    [index]="$index"
+    [selected]="selectedTab === $index"
+    (select)="onTabSelected($event, $index)"
+  />
+  }
 </div>
