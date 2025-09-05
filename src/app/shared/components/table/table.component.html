@@ -10,6 +10,6 @@
   <div role="table" class="custom-table">
     <app-table-head />
     <app-table-body [spentsResponse]="spentsResponse$ | async" />
-    <app-table-footer />
+    <app-table-footer [spentsResponse]="spentsResponse$ | async" />
   </div>
 </div>

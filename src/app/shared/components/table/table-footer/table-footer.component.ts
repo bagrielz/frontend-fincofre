@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { TokenService } from '../../../../core/services/token.service';
-import { SpentService } from '../../../../core/services/spent.service';
+import { Component, input } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
+import { SpentResponse } from '../../../models/spent-response.model';
 
 @Component({
   selector: 'app-table-footer',
@@ -9,21 +8,10 @@ import { CurrencyPipe } from '@angular/common';
   templateUrl: './table-footer.component.html',
   styleUrl: './table-footer.component.css',
 })
-export class TableFooterComponent implements OnInit {
-  token!: string | null;
-  total!: number;
+export class TableFooterComponent {
+  spentsResponse = input<SpentResponse | null>();
 
-  constructor(
-    private tokenService: TokenService,
-    private spentService: SpentService
-  ) {}
-
-  ngOnInit(): void {
-    this.token = this.tokenService.returnToken();
-    this.spentService.getAllSpents(this.token);
-
-    this.spentService.spentsResponse$.subscribe((res) => {
-      this.total = res.total;
-    });
+  get total(): number | undefined {
+    return this.spentsResponse()?.total;
   }
 }
