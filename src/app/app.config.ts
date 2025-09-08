@@ -1,5 +1,6 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { LOCALE_ID } from '@angular/core';
 
 import { routes } from './app.routes';
 import {
@@ -14,5 +15,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
   ],
 };

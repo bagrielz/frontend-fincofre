@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-single-tab',
@@ -8,10 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './single-tab.component.css',
 })
 export class SingleTabComponent {
-  tabs = ['Todos', 'Gastos fixos', 'Gastos variáveis'];
-  selectedTab = 0;
+  label = input.required<string>();
+  index = input.required<number>();
+  selected = input<boolean>();
+  select = output<string>();
 
-  selectTab(index: number) {
-    this.selectedTab = index;
+  selectTab() {
+    let type = '';
+    if (this.index() === 1) type = 'FIXO';
+    if (this.index() === 2) type = 'VARIÁVEL';
+
+    this.select.emit(type);
   }
 }

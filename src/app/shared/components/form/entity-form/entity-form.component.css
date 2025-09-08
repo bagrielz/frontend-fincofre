@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   height: 100%;
-  padding-bottom: 7.5rem;
+  background: var(--color-gray-100);
+  padding-bottom: 4rem;
 }
 
 .main-content {

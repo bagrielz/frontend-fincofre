@@ -8,7 +8,7 @@ export interface Spent {
   userId: number;
   date: Date;
   spent: string;
-  statusValue: Status;
+  status: Status;
   value: number;
   category: Category;
   type: Type;
