@@ -1,7 +1,6 @@
 import { Component, input } from '@angular/core';
 import { CheckboxComponent } from '../../checkbox/checkbox.component';
 import { Spent } from '../../../models/spent.model';
-import { SpentResponse } from '../../../models/spent-response.model';
 import { StatusLabel } from '../../../enums/status.enum';
 import { CategoryLabel } from '../../../enums/category.enum';
 import { MethodLabel } from '../../../enums/method.enum';
@@ -15,7 +14,7 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './table-body.component.css',
 })
 export class TableBodyComponent {
-  spentsResponse = input<SpentResponse | null>();
+  spents = input<Spent[]>();
 
   StatusLabel = StatusLabel;
   CategoryLabel = CategoryLabel;

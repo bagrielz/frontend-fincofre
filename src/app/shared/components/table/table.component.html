@@ -1,6 +1,6 @@
 <div class="table-container">
   <div class="table-options">
-    <app-tabs />
+    <app-tabs (tabChange)="onTabChange($event)" />
     <app-button type="secondary">
       <img src="icons/filter.svg" alt="" />
       Filtro
@@ -9,7 +9,7 @@
 
   <div role="table" class="custom-table">
     <app-table-head />
-    <app-table-body [spentsResponse]="spentsResponse$ | async" />
-    <app-table-footer [spentsResponse]="spentsResponse$ | async" />
+    <app-table-body [spents]="(spentsResponse$ | async)?.spents" />
+    <app-table-footer [total]="(spentsResponse$ | async)?.total" />
   </div>
 </div>

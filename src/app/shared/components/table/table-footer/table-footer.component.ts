@@ -9,9 +9,5 @@ import { SpentResponse } from '../../../models/spent-response.model';
   styleUrl: './table-footer.component.css',
 })
 export class TableFooterComponent {
-  spentsResponse = input<SpentResponse | null>();
-
-  get total(): number | undefined {
-    return this.spentsResponse()?.total;
-  }
+  total = input<number>();
 }

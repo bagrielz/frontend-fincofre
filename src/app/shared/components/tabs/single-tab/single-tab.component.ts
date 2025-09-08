@@ -15,6 +15,7 @@ export class SingleTabComponent {
 
   selectTab() {
     let type = '';
+    if (this.index() === 0) type = 'TODOS';
     if (this.index() === 1) type = 'FIXO';
     if (this.index() === 2) type = 'VARIÁVEL';
 

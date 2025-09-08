@@ -37,4 +37,8 @@ export class TableComponent implements OnInit {
     const token = this.tokenService.returnToken();
     this.spentService.getAllSpents(token);
   }
+
+  onTabChange(type: string) {
+    console.log(type);
+  }
 }

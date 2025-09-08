@@ -35,4 +35,16 @@ export class SpentService {
         this.spentsSource.next(res);
       });
   }
+
+  getSpentsByType(token: string | null, type?: string) {
+    const headers = getHeaders(token);
+    let url = `${this.apiUrl}/gastos/listar-por-tipo`;
+    if (type) {
+      url += `?type=${type}`;
+    }
+
+    this.http.get<SpentResponse>(url, { headers }).subscribe((res) => {
+      this.spentsSource.next(res);
+    });
+  }
 }
