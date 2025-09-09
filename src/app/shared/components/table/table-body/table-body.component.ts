@@ -6,10 +6,12 @@ import { CategoryLabel } from '../../../enums/category.enum';
 import { MethodLabel } from '../../../enums/method.enum';
 import { TypeLabel } from '../../../enums/type.enum';
 import { CurrencyPipe } from '@angular/common';
+import { PillComponent } from '../../pill/pill.component';
+import { PillStatus } from '../../../../core/config/pill-status.config';
 
 @Component({
   selector: 'app-table-body',
-  imports: [CheckboxComponent, CurrencyPipe],
+  imports: [CheckboxComponent, CurrencyPipe, PillComponent],
   templateUrl: './table-body.component.html',
   styleUrl: './table-body.component.css',
 })
@@ -20,6 +22,7 @@ export class TableBodyComponent {
   CategoryLabel = CategoryLabel;
   MethodLabel = MethodLabel;
   TypeLabel = TypeLabel;
+  PillStatus = PillStatus;
 
   trackById(item: Spent): number {
     return item.id;
