@@ -7,7 +7,7 @@
     <div class="cell" role="cell">{{ s.date }}</div>
     <div class="cell" role="cell">{{ s.spent }}</div>
     <div class="cell" role="cell">
-      <app-pill [props]="PillStatus[s.status]" />
+      <app-pill [props]="PillStatusConfig[s.status]" />
     </div>
     <div class="cell" role="cell">
       {{ s.value | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR" }}
