@@ -8,10 +8,17 @@ import { TypeLabel } from '../../../enums/type.enum';
 import { CurrencyPipe } from '@angular/common';
 import { PillComponent } from '../../pill/pill.component';
 import { PillStatusConfig } from '../../../../core/config/pill-status.config';
+import { PaymentMethodComponent } from '../../payment-method/payment-method.component';
+import { PillMethodConfig } from '../../../../core/config/pill-method.config';
 
 @Component({
   selector: 'app-table-body',
-  imports: [CheckboxComponent, CurrencyPipe, PillComponent],
+  imports: [
+    CheckboxComponent,
+    CurrencyPipe,
+    PillComponent,
+    PaymentMethodComponent,
+  ],
   templateUrl: './table-body.component.html',
   styleUrl: './table-body.component.css',
 })
@@ -23,6 +30,7 @@ export class TableBodyComponent {
   MethodLabel = MethodLabel;
   TypeLabel = TypeLabel;
   PillStatusConfig = PillStatusConfig;
+  PillMethodConfig = PillMethodConfig;
 
   trackById(item: Spent): number {
     return item.id;
