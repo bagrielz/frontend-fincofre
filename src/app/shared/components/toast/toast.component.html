@@ -7,10 +7,12 @@
   <div>
     <span>{{ quantity() }} selecionado(s)</span>
     <div class="buttons">
+      @if (quantity() === 1) {
       <app-button type="primary">
         <img src="icons/edit.svg" alt="" />
         Editar
       </app-button>
+      }
       <app-button type="danger">
         <img src="icons/trash.svg" alt="" />
         Excluir
