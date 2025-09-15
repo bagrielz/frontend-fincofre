@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CheckboxComponent } from '../../checkbox/checkbox.component';
 import { Spent } from '../../../models/spent.model';
 import { StatusLabel } from '../../../enums/status.enum';

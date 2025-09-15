@@ -1,8 +1,11 @@
 <div class="toast">
-  <span class="total-text">Total selecionado(s): R$ 10,00</span>
+  <span class="total-text"
+    >Total selecionado(s):
+    {{ total() | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR" }}</span
+  >
 
   <div>
-    <span>1 selecionado(s)</span>
+    <span>{{ quantity() }} selecionado(s)</span>
     <div class="buttons">
       <app-button type="primary">
         <img src="icons/edit.svg" alt="" />
