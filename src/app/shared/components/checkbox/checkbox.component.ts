@@ -1,11 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { SelectionService } from '../../../core/services/selection.service';
+import { Spent } from '../../models/spent.model';
 
 @Component({
   selector: 'app-checkbox',
   imports: [],
   templateUrl: './checkbox.component.html',
-  styleUrl: './checkbox.component.css'
+  styleUrl: './checkbox.component.css',
 })
 export class CheckboxComponent {
+  data = input.required<Spent>();
+  checked = input<boolean>();
 
+  constructor(private selectionService: SelectionService) {}
+
+  onChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    console.log(this.data());
+    this.selectionService.toggleSelection(this.data(), input.checked);
+  }
 }

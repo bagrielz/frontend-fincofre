@@ -1,8 +1,9 @@
-import { PillConfig } from '../../shared/models/pill-config.model';
+import { Status } from '../../shared/enums/status.enum';
+import { Pill } from '../../shared/models/pill.model';
 
-export const PillStatus: PillConfig[] = [
-  { type: 'waiting', text: 'Aguardando' },
-  { type: 'completed', text: 'Concluído' },
-  { type: 'scheduled', text: 'Agendado' },
-  { type: 'canceled', text: 'Cancelado' },
-];
+export const PillStatusConfig: Record<Status, Pill> = {
+  [Status.AGUARDANDO]: { type: 'waiting', text: 'Aguardando' },
+  [Status.CONCLUIDO]: { type: 'completed', text: 'Concluído' },
+  [Status.AGENDADO]: { type: 'scheduled', text: 'Agendado' },
+  [Status.CANCELADO]: { type: 'canceled', text: 'Cancelado' },
+};

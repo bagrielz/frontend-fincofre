@@ -1,4 +1,4 @@
-export interface PillConfig {
+export interface Pill {
   type: string;
   text: string;
 }

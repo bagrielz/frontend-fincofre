@@ -18,8 +18,8 @@
   position: relative;
   margin-right: 8px;
 
-  border: 1.33px solid var(--color-gray-200);
-  border-radius: 2px;
+  border: 2px solid var(--color-gray-200);
+  border-radius: 3px;
   transition: all 0.2s ease;
 }
 
