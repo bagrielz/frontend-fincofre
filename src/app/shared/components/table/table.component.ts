@@ -9,6 +9,7 @@ import { TokenService } from '../../../core/services/token.service';
 import { Observable } from 'rxjs';
 import { SpentResponse } from '../../models/spent-response.model';
 import { AsyncPipe } from '@angular/common';
+import { SelectionService } from '../../../core/services/selection.service';
 
 @Component({
   selector: 'app-table',
@@ -28,7 +29,8 @@ export class TableComponent implements OnInit {
 
   constructor(
     private spentService: SpentService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private selectionService: SelectionService
   ) {
     this.spentsResponse$ = this.spentService.spentsResponse$;
   }
@@ -39,6 +41,7 @@ export class TableComponent implements OnInit {
   }
 
   onTabChange(type: string) {
+    this.selectionService.clearSelection();
     const token = this.tokenService.returnToken();
 
     if (!type) {
