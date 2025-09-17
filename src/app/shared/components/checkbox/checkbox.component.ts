@@ -14,6 +14,10 @@ export class CheckboxComponent {
 
   constructor(private selectionService: SelectionService) {}
 
+  isChecked(): boolean {
+    return this.selectionService.isSelected(this.data());
+  }
+
   onChange(event: Event) {
     const input = event.target as HTMLInputElement;
     console.log(this.data());

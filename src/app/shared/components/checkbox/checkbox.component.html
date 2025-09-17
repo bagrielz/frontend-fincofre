@@ -1,4 +1,4 @@
 <label class="checkbox-container">
-  <input type="checkbox" (change)="onChange($event)" />
+  <input type="checkbox" [checked]="isChecked()" (change)="onChange($event)" />
   <span class="custom-checkbox"></span>
 </label>
