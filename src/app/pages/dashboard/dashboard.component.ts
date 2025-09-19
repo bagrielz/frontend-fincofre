@@ -14,6 +14,9 @@ import { SelectionService } from '../../core/services/selection.service';
 export class DashboardComponent {
   constructor(private selectionService: SelectionService) {}
 
+  spentsSelection = computed(() =>
+    this.selectionService.selectedSpents().map((s) => s.id)
+  );
   hasSelection = computed(() => this.selectionService.selectedSpents().length);
   selectedTotal = computed(() =>
     this.selectionService.selectedSpents().reduce((acc, s) => acc + s.value, 0)

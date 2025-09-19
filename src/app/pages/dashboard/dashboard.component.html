@@ -9,7 +9,11 @@
     <app-table />
 
     @if ( selectedTotal() > 0) {
-    <app-toast [total]="selectedTotal()" [quantity]="hasSelection()" />
+    <app-toast
+      [total]="selectedTotal()"
+      [quantity]="hasSelection()"
+      [spents]="spentsSelection()"
+    />
     }
   </div>
 </main>

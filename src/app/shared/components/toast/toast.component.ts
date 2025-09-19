@@ -12,5 +12,9 @@ import { CurrencyPipe } from '@angular/common';
 export class ToastComponent {
   total = input.required<number>();
   quantity = input.required<number>();
-  spents = input<Spent[]>();
+  spents = input<number[]>();
+
+  updateClickSpent() {
+    console.log('Botão clicado');
+  }
 }
