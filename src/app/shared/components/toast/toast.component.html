@@ -8,7 +8,7 @@
     <span>{{ quantity() }} selecionado(s)</span>
     <div class="buttons">
       @if (quantity() === 1) {
-      <app-button type="primary" (clicked)="updateClickSpent()">
+      <app-button type="primary" (clicked)="updateClickSpent(spents())">
         <img src="icons/edit.svg" alt="" />
         Editar
       </app-button>

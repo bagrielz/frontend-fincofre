@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { SpentResponse } from '../../shared/models/spent-response.model';
+import { Spent } from '../../shared/models/spent.model';
 
 function getHeaders(token: string | null): HttpHeaders {
   return new HttpHeaders({
@@ -20,7 +21,10 @@ export class SpentService {
     spents: [],
     total: 0,
   });
+  private spentSource = new BehaviorSubject<Spent | null>(null);
+
   spentsResponse$ = this.spentsSource.asObservable();
+  spentResponse$ = this.spentSource.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -45,6 +49,18 @@ export class SpentService {
 
     this.http.get<SpentResponse>(url, { headers }).subscribe((res) => {
       this.spentsSource.next(res);
+    });
+  }
+
+  getSpentById(token: string | null, id: number | undefined) {
+    const headers = getHeaders(token);
+    let url = `${this.apiUrl}/gastos/detalhar`;
+    if (id) {
+      url += `/${id}`;
+    }
+
+    this.http.get<Spent>(url, { headers }).subscribe((res) => {
+      this.spentSource.next(res);
     });
   }
 }
