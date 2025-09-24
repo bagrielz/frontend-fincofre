@@ -9,6 +9,7 @@ import { TokenService } from '../../../../core/services/token.service';
 import { UserService } from '../../../../core/services/user.service';
 import { SubtitleComponent } from '../../subtitle/subtitle.component';
 import { FieldComponent } from '../field/field.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-entity-form',
@@ -31,24 +32,19 @@ export class EntityFormComponent {
   inputFormGroup = input.required<string>();
   formWithData = input<boolean>();
   onSubmit = input.required<(formValue: any) => void>();
+  dataProvider = input<() => Observable<any>>();
 
-  constructor(
-    private formInitializer: FormInitializerService,
-    private tokenService: TokenService,
-    private userService: UserService
-  ) {}
+  constructor(private formInitializer: FormInitializerService) {}
 
   ngOnInit(): void {
     const formKey = this.inputFormGroup();
     const formWithData = this.formWithData();
 
-    if (formWithData) {
-      this.token = this.tokenService.returnToken();
-      this.userService.get(this.token).subscribe((user) => {
-        this.user = user;
-
+    if (formWithData && this.dataProvider()) {
+      this.dataProvider()!().subscribe((entity) => {
+        console.log(entity);
         const { form, formConfig } =
-          this.formInitializer.initializeFormWithData(formKey, user);
+          this.formInitializer.initializeFormWithData(formKey, entity);
         this.form = form;
         this.formConfig = formConfig;
       });

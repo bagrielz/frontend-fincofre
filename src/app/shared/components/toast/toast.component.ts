@@ -26,6 +26,8 @@ export class ToastComponent {
       console.error('Array de ID vazio');
     }
 
-    this.router.navigate(['/editar-gasto']);
+    const spentId = id[0];
+
+    this.router.navigate(['/editar-gasto', spentId]);
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { SpentResponse } from '../../shared/models/spent-response.model';
 import { Spent } from '../../shared/models/spent.model';
@@ -52,15 +52,16 @@ export class SpentService {
     });
   }
 
-  getSpentById(token: string | null, id: number | undefined) {
+  getSpentById(
+    token: string | null,
+    id: number | undefined
+  ): Observable<Spent> {
     const headers = getHeaders(token);
     let url = `${this.apiUrl}/gastos/detalhar`;
     if (id) {
       url += `/${id}`;
     }
 
-    this.http.get<Spent>(url, { headers }).subscribe((res) => {
-      this.spentSource.next(res);
-    });
+    return this.http.get<Spent>(url, { headers });
   }
 }
