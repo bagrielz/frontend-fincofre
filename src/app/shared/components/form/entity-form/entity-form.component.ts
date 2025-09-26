@@ -4,9 +4,6 @@ import { FormConfig } from '../../../models/form-config.model';
 import { FormInitializerService } from '../../../../core/services/form-initializer.service';
 import { TitleComponent } from '../../title/title.component';
 import { ButtonComponent } from '../../button/button.component';
-import { User } from '../../../models/user.model';
-import { TokenService } from '../../../../core/services/token.service';
-import { UserService } from '../../../../core/services/user.service';
 import { SubtitleComponent } from '../../subtitle/subtitle.component';
 import { FieldComponent } from '../field/field.component';
 import { Observable } from 'rxjs';
@@ -26,8 +23,6 @@ import { Observable } from 'rxjs';
 export class EntityFormComponent {
   form!: FormGroup;
   formConfig!: FormConfig;
-  user!: User;
-  token!: string | null;
 
   inputFormGroup = input.required<string>();
   formWithData = input<boolean>();
@@ -47,6 +42,7 @@ export class EntityFormComponent {
           this.formInitializer.initializeFormWithData(formKey, entity);
         this.form = form;
         this.formConfig = formConfig;
+        console.log(this.formConfig);
       });
     } else {
       const { form, formConfig } = this.formInitializer.initializeForm(formKey);

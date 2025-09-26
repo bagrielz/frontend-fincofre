@@ -25,8 +25,8 @@
       <option value="" disabled selected hidden>
         {{ field.placeholder }}
       </option>
-      @for (status of field.options; track $index) {
-      <option [value]="status.value">{{ status.label }}</option>
+      @for (option of field.options; track $index) {
+      <option [value]="option.value">{{ option.label }}</option>
       }
     </select>
     } @if (field.icon?.trim()) {

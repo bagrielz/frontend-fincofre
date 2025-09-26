@@ -1,5 +1,9 @@
 import { Validators } from '@angular/forms';
 import { FormConfig } from '../../shared/models/form-config.model';
+import { Status } from '../../shared/enums/status.enum';
+import { Category } from '../../shared/enums/category.enum';
+import { Type } from '../../shared/enums/type.enum';
+import { Method } from '../../shared/enums/method.enum';
 
 export function getUpdateSpentFormConfig(): FormConfig {
   return {
@@ -44,10 +48,10 @@ export function getUpdateSpentFormConfig(): FormConfig {
         icon: 'icons/chevron-down.svg',
         validators: [Validators.required],
         options: [
-          { label: 'Agendado', value: 'agendado' },
-          { label: 'Concluído', value: 'concluido' },
-          { label: 'Cancelado', value: 'cancelado' },
-          { label: 'Aguardando', value: 'aguardando' },
+          { label: 'Agendado', value: Status.AGENDADO },
+          { label: 'Concluído', value: Status.CONCLUIDO },
+          { label: 'Cancelado', value: Status.CANCELADO },
+          { label: 'Aguardando', value: Status.AGUARDANDO },
         ],
         width: 'full',
       },
@@ -77,22 +81,22 @@ export function getUpdateSpentFormConfig(): FormConfig {
         placeholder: 'Escolha a categoria',
         validators: [Validators.required],
         options: [
-          { label: 'Internet', value: 'internet' },
-          { label: 'Entretenimento', value: 'entretenimento' },
-          { label: 'Casa', value: 'casa' },
-          { label: 'Educação', value: 'educação' },
-          { label: 'Saúde', value: 'saúde' },
-          { label: 'Ferramenta', value: 'ferramenta' },
-          { label: 'Cartão', value: 'cartão' },
-          { label: 'Roupas', value: 'roupas' },
-          { label: 'Transporte', value: 'transporte' },
-          { label: 'Alimentação', value: 'alimentação' },
+          { label: 'Internet', value: Category.INTERNET },
+          { label: 'Entretenimento', value: Category.ENTRETENIMENTO },
+          { label: 'Casa', value: Category.CASA },
+          { label: 'Educação', value: Category.EDUCACAO },
+          { label: 'Saúde', value: Category.SAUDE },
+          { label: 'Ferramenta', value: Category.FERRAMENTA },
+          { label: 'Cartão', value: Category.CARTAO },
+          { label: 'Roupas', value: Category.ROUPAS },
+          { label: 'Transporte', value: Category.TRANSPORTE },
+          { label: 'Alimentação', value: Category.ALIMENTACAO },
         ],
         width: 'full',
       },
       {
         label: 'Banco',
-        formControlName: 'bank',
+        formControlName: 'account',
         type: 'text',
         required: true,
         errorMessages: {
@@ -104,7 +108,7 @@ export function getUpdateSpentFormConfig(): FormConfig {
       },
       {
         label: 'Tipo de gasto',
-        formControlName: 'spentType',
+        formControlName: 'type',
         type: 'select',
         required: true,
         errorMessages: {
@@ -114,14 +118,14 @@ export function getUpdateSpentFormConfig(): FormConfig {
         icon: 'icons/chevron-down.svg',
         validators: [Validators.required],
         options: [
-          { label: 'Fixo', value: 'fixo' },
-          { label: 'Variável', value: 'variavel' },
+          { label: 'Fixo', value: Type.FIXO },
+          { label: 'Variável', value: Type.VARIAVEL },
         ],
         width: 'full',
       },
       {
         label: 'Forma de pagamento',
-        formControlName: 'status',
+        formControlName: 'method',
         type: 'select',
         required: true,
         errorMessages: {
@@ -131,11 +135,11 @@ export function getUpdateSpentFormConfig(): FormConfig {
         icon: 'icons/chevron-down.svg',
         validators: [Validators.required],
         options: [
-          { label: 'Crédito', value: 'credito' },
-          { label: 'Débito', value: 'debito' },
-          { label: 'Boleto', value: 'boleto' },
-          { label: 'PIX', value: 'pix' },
-          { label: 'Dinheiro', value: 'dinheiro' },
+          { label: 'Crédito', value: Method.CREDITO },
+          { label: 'Débito', value: Method.DEBITO },
+          { label: 'Boleto', value: Method.BOLETO },
+          { label: 'PIX', value: Method.PIX },
+          { label: 'Dinheiro', value: Method.DINHEIRO },
         ],
         width: 'full',
       },

@@ -6,7 +6,7 @@ import { Type } from '../enums/type.enum';
 export interface Spent {
   id: number;
   userId: number;
-  date: Date;
+  date: string;
   spent: string;
   status: Status;
   value: number;
