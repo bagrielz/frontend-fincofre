@@ -11,6 +11,10 @@ export function getUpdateSpentFormConfig(): FormConfig {
     highlight: 'Editar gasto',
     subtitle: 'Editar gasto',
     description: 'Edite o gasto conforme a sua necessidade.',
+    buttons: [
+      { type: 'primary', text: 'Atualizar' },
+      { type: 'secondary', text: 'Cancelar' },
+    ],
     fields: [
       {
         label: 'Nome do gasto',
