@@ -64,4 +64,18 @@ export class SpentService {
 
     return this.http.get<Spent>(url, { headers });
   }
+
+  updateSpent(
+    token: string | null,
+    data: Spent,
+    id: number
+  ): Observable<Spent> {
+    const headers = getHeaders(token);
+    if (!id) {
+      console.error('ID não existe');
+    }
+    const url = `${this.apiUrl}/gastos/atualizar/${id}`;
+
+    return this.http.patch<Spent>(url, data, { headers });
+  }
 }

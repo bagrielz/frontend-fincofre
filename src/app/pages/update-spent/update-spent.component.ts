@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { EntityFormComponent } from '../../shared/components/form/entity-form/entity-form.component';
 import { TokenService } from '../../core/services/token.service';
 import { SpentService } from '../../core/services/spent.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Spent } from '../../shared/models/spent.model';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-update-spent-form',
@@ -18,11 +19,12 @@ export class UpdateSpentComponent implements OnInit {
   constructor(
     private tokenService: TokenService,
     private spentService: SpentService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = this.getParamMap();
     const token = this.tokenService.returnToken();
 
     if (id && token) {
@@ -32,9 +34,24 @@ export class UpdateSpentComponent implements OnInit {
     }
   }
 
+  getParamMap(): number {
+    return Number(this.route.snapshot.paramMap.get('id'));
+  }
+
   getSpentData = () => this.spent$;
 
   updateSpentData = (formValue: any) => {
-    console.log('Teste');
+    const token = this.tokenService.returnToken();
+    const id = this.getParamMap();
+
+    this.spentService.updateSpent(token, formValue, id).subscribe({
+      next: (res) => {
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate([`/editar-gasto/${res.id}`]);
+          });
+      },
+    });
   };
 }
