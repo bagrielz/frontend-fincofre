@@ -67,7 +67,7 @@ export class SpentService {
 
   updateSpent(
     token: string | null,
-    data: Spent,
+    data: Partial<Spent>,
     id: number
   ): Observable<Spent> {
     const headers = getHeaders(token);

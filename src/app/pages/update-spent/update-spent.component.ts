@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Spent } from '../../shared/models/spent.model';
 import { HttpHeaders } from '@angular/common/http';
+import { toSpentUpdateDTO } from '../../shared/mappers/spent.mapper';
 
 @Component({
   selector: 'app-update-spent-form',
@@ -43,8 +44,10 @@ export class UpdateSpentComponent implements OnInit {
   updateSpentData = (formValue: any) => {
     const token = this.tokenService.returnToken();
     const id = this.getParamMap();
+    const dto = toSpentUpdateDTO(formValue);
+    console.log(dto);
 
-    this.spentService.updateSpent(token, formValue, id).subscribe({
+    this.spentService.updateSpent(token, dto, id).subscribe({
       next: (res) => {
         this.router
           .navigateByUrl('/', { skipLocationChange: true })
