@@ -45,7 +45,6 @@ export class UpdateSpentComponent implements OnInit {
     const token = this.tokenService.returnToken();
     const id = this.getParamMap();
     const dto = toSpentUpdateDTO(formValue);
-    console.log(dto);
 
     this.spentService.updateSpent(token, dto, id).subscribe({
       next: (res) => {

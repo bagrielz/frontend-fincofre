@@ -37,12 +37,10 @@ export class EntityFormComponent {
 
     if (formWithData && this.dataProvider()) {
       this.dataProvider()!().subscribe((entity) => {
-        console.log(entity);
         const { form, formConfig } =
           this.formInitializer.initializeFormWithData(formKey, entity);
         this.form = form;
         this.formConfig = formConfig;
-        console.log(this.formConfig);
       });
     } else {
       const { form, formConfig } = this.formInitializer.initializeForm(formKey);

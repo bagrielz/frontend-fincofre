@@ -20,7 +20,6 @@ export class CheckboxComponent {
 
   onChange(event: Event) {
     const input = event.target as HTMLInputElement;
-    console.log(this.data());
     this.selectionService.toggleSelection(this.data(), input.checked);
   }
 }
