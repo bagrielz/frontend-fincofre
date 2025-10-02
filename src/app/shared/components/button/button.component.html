@@ -1,6 +1,7 @@
 <button
   [ngClass]="type()"
   class="btn"
+  [attr.type]="nativeType()"
   [routerLink]="routerLink()"
   (click)="onClick()"
 >

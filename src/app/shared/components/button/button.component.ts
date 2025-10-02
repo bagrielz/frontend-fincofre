@@ -12,6 +12,7 @@ type ButtonType = 'primary' | 'secondary' | 'danger';
 })
 export class ButtonComponent {
   type = input.required<ButtonType>();
+  nativeType = input<string>();
   routerLink = input<string>();
   clicked = output();
 

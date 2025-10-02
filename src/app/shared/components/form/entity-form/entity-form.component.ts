@@ -7,6 +7,7 @@ import { ButtonComponent } from '../../button/button.component';
 import { SubtitleComponent } from '../../subtitle/subtitle.component';
 import { FieldComponent } from '../field/field.component';
 import { Observable } from 'rxjs';
+import { ButtonConfig } from '../../../models/button-config.model';
 
 @Component({
   selector: 'app-entity-form',
@@ -51,5 +52,16 @@ export class EntityFormComponent {
 
   submitForm() {
     this.onSubmit()(this.form.value);
+  }
+
+  onButtonClick(btn: ButtonConfig) {
+    if (btn.text === 'Cancelar') {
+      console.log('cancelou');
+      // Escrever a lógica do cancelamento
+    }
+
+    if (btn.text === 'Atualizar') {
+      this.submitForm();
+    }
   }
 }
