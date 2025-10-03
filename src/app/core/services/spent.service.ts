@@ -28,6 +28,14 @@ export class SpentService {
 
   constructor(private http: HttpClient) {}
 
+  createSpent(token: string | null, data: Partial<Spent>): Observable<Spent> {
+    const headers = getHeaders(token);
+
+    return this.http.post<Spent>(`${this.apiUrl}/gastos/cadastrar`, data, {
+      headers,
+    });
+  }
+
   getAllSpents(token: string | null) {
     const headers = getHeaders(token);
 

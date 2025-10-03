@@ -13,3 +13,16 @@ export function toSpentUpdateDTO(spent: Spent) {
     method: spent.method,
   };
 }
+
+export function toSpentCreateDTO(spent: Spent) {
+  return {
+    date: formatDateToApi(spent.date),
+    spent: spent.spent,
+    status: spent.status,
+    value: spent.value ? Number(spent.value) : 0,
+    category: spent.category,
+    type: spent.type,
+    account: spent.account,
+    method: spent.method,
+  };
+}

@@ -54,6 +54,9 @@ export class UpdateSpentComponent implements OnInit {
             this.router.navigate([`/editar-gasto/${res.id}`]);
           });
       },
+      error: (err) => {
+        console.log(err);
+      },
     });
   };
 }
