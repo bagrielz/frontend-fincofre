@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { SpentResponse } from '../../shared/models/spent-response.model';
+import { Spent } from '../../shared/models/spent.model';
 
 function getHeaders(token: string | null): HttpHeaders {
   return new HttpHeaders({
@@ -20,9 +21,20 @@ export class SpentService {
     spents: [],
     total: 0,
   });
+  private spentSource = new BehaviorSubject<Spent | null>(null);
+
   spentsResponse$ = this.spentsSource.asObservable();
+  spentResponse$ = this.spentSource.asObservable();
 
   constructor(private http: HttpClient) {}
+
+  createSpent(token: string | null, data: Partial<Spent>): Observable<Spent> {
+    const headers = getHeaders(token);
+
+    return this.http.post<Spent>(`${this.apiUrl}/gastos/cadastrar`, data, {
+      headers,
+    });
+  }
 
   getAllSpents(token: string | null) {
     const headers = getHeaders(token);
@@ -46,5 +58,32 @@ export class SpentService {
     this.http.get<SpentResponse>(url, { headers }).subscribe((res) => {
       this.spentsSource.next(res);
     });
+  }
+
+  getSpentById(
+    token: string | null,
+    id: number | undefined
+  ): Observable<Spent> {
+    const headers = getHeaders(token);
+    let url = `${this.apiUrl}/gastos/detalhar`;
+    if (id) {
+      url += `/${id}`;
+    }
+
+    return this.http.get<Spent>(url, { headers });
+  }
+
+  updateSpent(
+    token: string | null,
+    data: Partial<Spent>,
+    id: number
+  ): Observable<Spent> {
+    const headers = getHeaders(token);
+    if (!id) {
+      console.error('ID não existe');
+    }
+    const url = `${this.apiUrl}/gastos/atualizar/${id}`;
+
+    return this.http.patch<Spent>(url, data, { headers });
   }
 }

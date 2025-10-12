@@ -1,4 +1,6 @@
 <app-entity-form
   [inputFormGroup]="'updateSpentForm'"
+  [formWithData]="true"
   [onSubmit]="updateSpentData"
+  [dataProvider]="getSpentData"
 />

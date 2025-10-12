@@ -13,12 +13,17 @@
         />
 
         <form [formGroup]="form" (ngSubmit)="submitForm()">
-          <app-form-fields [form]="form" [fields]="formConfig.fields" />
+          <app-field [form]="form" [fields]="formConfig.fields" />
           <div class="buttons">
             @if (formConfig.buttons) { @for (btn of formConfig.buttons; track
             $index) {
             <div class="button-wrapper">
-              <app-button [type]="btn.type" [routerLink]="btn.link">
+              <app-button
+                [type]="btn.type"
+                [routerLink]="btn.link"
+                [nativeType]="btn.text === 'Cancelar' ? 'button' : 'submit'"
+                (clicked)="onButtonClick(btn)"
+              >
                 @if (btn.icon) {
                 <img [src]="btn.icon" alt="" />
                 }

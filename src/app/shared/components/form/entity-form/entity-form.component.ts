@@ -4,11 +4,10 @@ import { FormConfig } from '../../../models/form-config.model';
 import { FormInitializerService } from '../../../../core/services/form-initializer.service';
 import { TitleComponent } from '../../title/title.component';
 import { ButtonComponent } from '../../button/button.component';
-import { User } from '../../../models/user.model';
-import { TokenService } from '../../../../core/services/token.service';
-import { UserService } from '../../../../core/services/user.service';
 import { SubtitleComponent } from '../../subtitle/subtitle.component';
 import { FieldComponent } from '../field/field.component';
+import { Observable } from 'rxjs';
+import { ButtonConfig } from '../../../models/button-config.model';
 
 @Component({
   selector: 'app-entity-form',
@@ -25,30 +24,22 @@ import { FieldComponent } from '../field/field.component';
 export class EntityFormComponent {
   form!: FormGroup;
   formConfig!: FormConfig;
-  user!: User;
-  token!: string | null;
 
   inputFormGroup = input.required<string>();
   formWithData = input<boolean>();
   onSubmit = input.required<(formValue: any) => void>();
+  dataProvider = input<() => Observable<any>>();
 
-  constructor(
-    private formInitializer: FormInitializerService,
-    private tokenService: TokenService,
-    private userService: UserService
-  ) {}
+  constructor(private formInitializer: FormInitializerService) {}
 
   ngOnInit(): void {
     const formKey = this.inputFormGroup();
     const formWithData = this.formWithData();
 
-    if (formWithData) {
-      this.token = this.tokenService.returnToken();
-      this.userService.get(this.token).subscribe((user) => {
-        this.user = user;
-
+    if (formWithData && this.dataProvider()) {
+      this.dataProvider()!().subscribe((entity) => {
         const { form, formConfig } =
-          this.formInitializer.initializeFormWithData(formKey, user);
+          this.formInitializer.initializeFormWithData(formKey, entity);
         this.form = form;
         this.formConfig = formConfig;
       });
@@ -61,5 +52,16 @@ export class EntityFormComponent {
 
   submitForm() {
     this.onSubmit()(this.form.value);
+  }
+
+  onButtonClick(btn: ButtonConfig) {
+    if (btn.text === 'Cancelar') {
+      console.log('cancelou');
+      // Escrever a lógica do cancelamento
+    }
+
+    if (btn.text === 'Atualizar') {
+      this.submitForm();
+    }
   }
 }

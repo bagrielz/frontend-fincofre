@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -12,5 +12,11 @@ type ButtonType = 'primary' | 'secondary' | 'danger';
 })
 export class ButtonComponent {
   type = input.required<ButtonType>();
+  nativeType = input<string>();
   routerLink = input<string>();
+  clicked = output();
+
+  onClick() {
+    this.clicked.emit();
+  }
 }

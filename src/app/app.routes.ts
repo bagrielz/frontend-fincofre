@@ -19,7 +19,7 @@ export const routes: Routes = [
     children: [
       { path: 'inicio', component: DashboardComponent },
       { path: 'adicionar-gasto', component: AddSpentComponent },
-      { path: 'editar-gasto', component: UpdateSpentComponent },
+      { path: 'editar-gasto/:id', component: UpdateSpentComponent },
       { path: 'perfil', component: ProfileComponent },
     ],
   },

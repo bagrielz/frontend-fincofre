@@ -3,7 +3,7 @@ import { CheckboxComponent } from '../../checkbox/checkbox.component';
 
 @Component({
   selector: 'app-table-head',
-  imports: [CheckboxComponent],
+  imports: [],
   templateUrl: './table-head.component.html',
   styleUrl: './table-head.component.css',
 })

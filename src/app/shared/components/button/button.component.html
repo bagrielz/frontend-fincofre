@@ -1,3 +1,9 @@
-<button [ngClass]="type()" class="btn" [routerLink]="routerLink()">
+<button
+  [ngClass]="type()"
+  class="btn"
+  [attr.type]="nativeType()"
+  [routerLink]="routerLink()"
+  (click)="onClick()"
+>
   <ng-content />
 </button>

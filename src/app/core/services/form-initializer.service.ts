@@ -7,6 +7,7 @@ import { getRegisterFormConfig } from '../config/register.config';
 import { getAddSpentFormConfig } from '../config/add-spent.config';
 import { getUpdateSpentFormConfig } from '../config/update-spent.config';
 import { getProfileFormConfig } from '../config/profile.config';
+import { formatDateToInput } from '../../shared/utils/date-utils';
 
 @Injectable({
   providedIn: 'root',
@@ -32,6 +33,10 @@ export class FormInitializerService {
     formKey: string,
     data: any
   ): { form: FormGroup; formConfig: FormConfig } {
+    const normalizeData = {
+      ...data,
+      date: data.date ? formatDateToInput(data.date) : '',
+    };
     const formConfig = this.getFormConfigByKey(formKey);
 
     this.dynamicFormService.registerFormConfig(formKey, () => formConfig);
@@ -39,7 +44,7 @@ export class FormInitializerService {
     const finalConfig = this.dynamicFormService.getFormConfig(formKey);
     const form = this.dynamicFormService.createFormGroup(finalConfig);
 
-    form.patchValue(data);
+    form.patchValue(normalizeData);
 
     return { form, formConfig: finalConfig };
   }

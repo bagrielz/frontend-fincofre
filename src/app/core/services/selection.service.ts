@@ -21,4 +21,8 @@ export class SelectionService {
   clearSelection() {
     this._selectedSpents.set([]);
   }
+
+  isSelected(spent: Spent): boolean {
+    return this._selectedSpents().some((s) => s.id === spent.id);
+  }
 }
