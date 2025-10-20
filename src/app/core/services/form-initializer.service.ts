@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { DynamicFormService } from './dynamic-form.service';
 import { FormConfig } from '../../shared/models/form-config.model';
 import { FormGroup } from '@angular/forms';
@@ -8,12 +8,16 @@ import { getAddSpentFormConfig } from '../config/add-spent.config';
 import { getUpdateSpentFormConfig } from '../config/update-spent.config';
 import { getProfileFormConfig } from '../config/profile.config';
 import { formatDateToInput } from '../../shared/utils/date-utils';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FormInitializerService {
-  constructor(private dynamicFormService: DynamicFormService) {}
+  constructor(
+    private dynamicFormService: DynamicFormService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   initializeForm(formKey: string): {
     form: FormGroup;
@@ -33,20 +37,17 @@ export class FormInitializerService {
     formKey: string,
     data: any
   ): { form: FormGroup; formConfig: FormConfig } {
-    const normalizeData = {
-      ...data,
-      date: data.date ? formatDateToInput(data.date) : '',
-    };
-    const formConfig = this.getFormConfigByKey(formKey);
+    const { form, formConfig } = this.initializeForm(formKey);
 
-    this.dynamicFormService.registerFormConfig(formKey, () => formConfig);
+    if (isPlatformBrowser(this.platformId) && data) {
+      const normalizeData = {
+        ...data,
+        date: data?.date ? formatDateToInput(data.date) : '',
+      };
+      form.patchValue(normalizeData);
+    }
 
-    const finalConfig = this.dynamicFormService.getFormConfig(formKey);
-    const form = this.dynamicFormService.createFormGroup(finalConfig);
-
-    form.patchValue(normalizeData);
-
-    return { form, formConfig: finalConfig };
+    return { form, formConfig };
   }
 
   private getFormConfigByKey(key: string) {
