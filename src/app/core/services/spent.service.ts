@@ -1,9 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { SpentResponse } from '../../shared/models/spent-response.model';
 import { Spent } from '../../shared/models/spent.model';
+import { TokenService } from './token.service';
+import { isPlatformBrowser } from '@angular/common';
 
 function getHeaders(token: string | null): HttpHeaders {
   return new HttpHeaders({
@@ -26,7 +28,11 @@ export class SpentService {
   spentsResponse$ = this.spentsSource.asObservable();
   spentResponse$ = this.spentSource.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private tokenService: TokenService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   createSpent(token: string | null, data: Partial<Spent>): Observable<Spent> {
     const headers = getHeaders(token);
@@ -36,9 +42,13 @@ export class SpentService {
     });
   }
 
-  getAllSpents(token: string | null) {
-    const headers = getHeaders(token);
+  getAllSpents() {
+    if (!isPlatformBrowser(this.platformId)) return;
 
+    const token = this.tokenService.returnToken();
+    if (!token) return;
+
+    const headers = getHeaders(token);
     this.http
       .get<SpentResponse>(`${this.apiUrl}/gastos/listar`, {
         headers,
