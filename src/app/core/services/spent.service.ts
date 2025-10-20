@@ -6,6 +6,7 @@ import { SpentResponse } from '../../shared/models/spent-response.model';
 import { Spent } from '../../shared/models/spent.model';
 import { TokenService } from './token.service';
 import { isPlatformBrowser } from '@angular/common';
+import { AuthTokenHelperService } from '../../shared/helpers/auth.helper';
 
 function getHeaders(token: string | null): HttpHeaders {
   return new HttpHeaders({
@@ -30,8 +31,7 @@ export class SpentService {
 
   constructor(
     private http: HttpClient,
-    private tokenService: TokenService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    private authHelper: AuthTokenHelperService
   ) {}
 
   createSpent(token: string | null, data: Partial<Spent>): Observable<Spent> {
@@ -43,30 +43,35 @@ export class SpentService {
   }
 
   getAllSpents() {
-    if (!isPlatformBrowser(this.platformId)) return;
+    this.authHelper.runIfBrowser(() => {
+      const token = this.authHelper.getToken();
+      if (!token) return;
 
-    const token = this.tokenService.returnToken();
-    if (!token) return;
-
-    const headers = getHeaders(token);
-    this.http
-      .get<SpentResponse>(`${this.apiUrl}/gastos/listar`, {
-        headers,
-      })
-      .subscribe((res) => {
-        this.spentsSource.next(res);
-      });
+      const headers = getHeaders(token);
+      this.http
+        .get<SpentResponse>(`${this.apiUrl}/gastos/listar`, {
+          headers,
+        })
+        .subscribe((res) => {
+          this.spentsSource.next(res);
+        });
+    });
   }
 
-  getSpentsByType(token: string | null, type?: string) {
-    const headers = getHeaders(token);
-    let url = `${this.apiUrl}/gastos/listar-por-tipo`;
-    if (type) {
-      url += `?type=${type}`;
-    }
+  getSpentsByType(type?: string) {
+    this.authHelper.runIfBrowser(() => {
+      const token = this.authHelper.getToken();
+      if (!token) return;
 
-    this.http.get<SpentResponse>(url, { headers }).subscribe((res) => {
-      this.spentsSource.next(res);
+      const headers = getHeaders(token);
+      let url = `${this.apiUrl}/gastos/listar-por-tipo`;
+      if (type) {
+        url += `?type=${type}`;
+      }
+
+      this.http.get<SpentResponse>(url, { headers }).subscribe((res) => {
+        this.spentsSource.next(res);
+      });
     });
   }
 
