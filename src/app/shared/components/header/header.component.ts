@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent implements OnInit {
-  user!: User;
+  user!: User | null;
 
   constructor(
     private router: Router,
