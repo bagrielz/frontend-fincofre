@@ -1,4 +1,4 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, OnInit } from '@angular/core';
 import { TableComponent } from '../../shared/components/table/table.component';
 import { TitleComponent } from '../../shared/components/title/title.component';
 import { ToastComponent } from '../../shared/components/toast/toast.component';
@@ -11,8 +11,12 @@ import { SelectionService } from '../../core/services/selection.service';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   constructor(private selectionService: SelectionService) {}
+
+  ngOnInit(): void {
+    this.selectionService.clearSelection();
+  }
 
   spentsSelection = computed(() =>
     this.selectionService.selectedSpents().map((s) => s.id)

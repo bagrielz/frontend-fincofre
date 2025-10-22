@@ -7,11 +7,16 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AddSpentComponent } from './pages/add-spent/add-spent.component';
 import { UpdateSpentComponent } from './pages/update-spent/update-spent.component';
+import { LoginGuard } from './core/guards/login.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'cadastrar', component: RegisterComponent },
+  { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
+  {
+    path: 'cadastrar',
+    component: RegisterComponent,
+    canActivate: [LoginGuard],
+  },
   {
     path: '',
     component: LayoutComponent,

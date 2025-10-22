@@ -29,25 +29,22 @@ export class TableComponent implements OnInit {
 
   constructor(
     private spentService: SpentService,
-    private tokenService: TokenService,
     private selectionService: SelectionService
   ) {
     this.spentsResponse$ = this.spentService.spentsResponse$;
   }
 
   ngOnInit(): void {
-    const token = this.tokenService.returnToken();
-    this.spentService.getAllSpents(token);
+    this.spentService.getAllSpents();
   }
 
   onTabChange(type: string) {
     this.selectionService.clearSelection();
-    const token = this.tokenService.returnToken();
 
     if (!type) {
-      this.spentService.getAllSpents(token);
+      this.spentService.getAllSpents();
     } else {
-      this.spentService.getSpentsByType(token, type);
+      this.spentService.getSpentsByType(type);
     }
   }
 }

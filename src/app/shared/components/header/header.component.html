@@ -1,6 +1,11 @@
 <header class="header-container">
   <div class="header">
-    <img src="icons/logo.svg" alt="Logo da FinCofre" />
+    <img
+      class="logo"
+      src="icons/logo.svg"
+      alt="Logo da FinCofre"
+      (click)="backToHome()"
+    />
     <div class="user-options">
       <app-button type="secondary" class="btn-log-out">
         <img src="icons/log-out.svg" alt="" />
