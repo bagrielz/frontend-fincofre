@@ -7,7 +7,7 @@
       (click)="backToHome()"
     />
     <div class="user-options">
-      <app-button type="secondary" class="btn-log-out">
+      <app-button type="secondary" class="btn-log-out" (clicked)="userLogout()">
         <img src="icons/log-out.svg" alt="" />
         Sair
       </app-button>
