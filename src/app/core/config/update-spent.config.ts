@@ -13,7 +13,7 @@ export function getUpdateSpentFormConfig(): FormConfig {
     description: 'Edite o gasto conforme a sua necessidade.',
     buttons: [
       { type: 'primary', text: 'Atualizar' },
-      { type: 'secondary', text: 'Cancelar' },
+      { type: 'secondary', text: 'Voltar' },
     ],
     fields: [
       {
