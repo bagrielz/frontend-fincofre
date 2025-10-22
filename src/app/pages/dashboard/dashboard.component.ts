@@ -4,6 +4,7 @@ import { TitleComponent } from '../../shared/components/title/title.component';
 import { ToastComponent } from '../../shared/components/toast/toast.component';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { SelectionService } from '../../core/services/selection.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,10 @@ import { SelectionService } from '../../core/services/selection.service';
   styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent implements OnInit {
-  constructor(private selectionService: SelectionService) {}
+  constructor(
+    private selectionService: SelectionService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.selectionService.clearSelection();
@@ -25,4 +29,8 @@ export class DashboardComponent implements OnInit {
   selectedTotal = computed(() =>
     this.selectionService.selectedSpents().reduce((acc, s) => acc + s.value, 0)
   );
+
+  addsNewSpent() {
+    this.router.navigateByUrl('/adicionar-gasto');
+  }
 }
