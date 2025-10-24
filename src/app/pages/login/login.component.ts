@@ -10,6 +10,8 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  errorMessage!: string;
+
   constructor(private router: Router, private authService: AuthService) {}
 
   handleLoginSubmit = (formValue: any) => {
@@ -27,7 +29,9 @@ export class LoginComponent {
         }
       },
       error: (err) => {
-        console.log('Erro no login', err);
+        if (err.status === 403) {
+          this.errorMessage = 'Login ou senha incorretos';
+        }
       },
     });
   };

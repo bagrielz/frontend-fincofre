@@ -18,6 +18,7 @@ export class AuthFormComponent {
 
   onSubmit = input.required<(formValue: any) => void>();
   inputFormGroup = input.required<string>();
+  errorMessage = input<string>();
 
   constructor(
     private formInitializer: FormInitializerService,
