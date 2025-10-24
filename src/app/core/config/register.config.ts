@@ -12,7 +12,7 @@ export function getRegisterFormConfig(): FormConfig {
       },
       {
         type: 'secondary',
-        text: 'Cancelar',
+        text: 'Voltar',
       },
     ],
     fields: [

@@ -15,9 +15,13 @@
       @if (formConfig.buttons) { @for (btn of formConfig.buttons; track $index;
       let last = $last) {
       <div class="button-wrapper" [class.with-border]="!last">
-        <app-button [type]="btn.type" [routerLink]="btn.link">{{
-          btn.text
-        }}</app-button>
+        <app-button
+          [type]="btn.type"
+          [routerLink]="btn.link"
+          [nativeType]="btn.text === 'Voltar' ? 'button' : 'submit'"
+          (clicked)="onButtonClick(btn)"
+          >{{ btn.text }}</app-button
+        >
       </div>
       } }
     </div>
