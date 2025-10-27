@@ -11,7 +11,7 @@
         <img src="icons/log-out.svg" alt="" />
         Sair
       </app-button>
-      <div class="user">
+      <div class="user" (click)="goToProfilePage()">
         <img src="icons/user.svg" alt="" />
         {{ user?.name }}
       </div>
