@@ -4,9 +4,9 @@
 
   <form [formGroup]="form" (ngSubmit)="submitForm()">
     <app-field [form]="form" [fields]="formConfig.fields" />
+    @if (errorMessage()) {
     <div class="error">{{ errorMessage() }}</div>
-
-    @if (inputFormGroup() === 'loginForm') {
+    } @if (inputFormGroup() === 'loginForm') {
     <div class="forgot-password">
       <a href="#">Esqueceu a senha? Clique aqui</a>
     </div>
