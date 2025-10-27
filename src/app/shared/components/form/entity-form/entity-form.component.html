@@ -33,6 +33,10 @@
             } }
           </div>
         </form>
+
+        @if (errorMessage()) {
+        <div class="error">{{ errorMessage() }}</div>
+        }
       </div>
     </div>
   </div>

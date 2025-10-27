@@ -26,6 +26,7 @@ export class EntityFormComponent {
   form!: FormGroup;
   formConfig!: FormConfig;
 
+  errorMessage = input<string>();
   inputFormGroup = input.required<string>();
   formWithData = input<boolean>();
   onSubmit = input.required<(formValue: any) => void>();

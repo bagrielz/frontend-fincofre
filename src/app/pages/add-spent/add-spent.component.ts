@@ -12,6 +12,8 @@ import { toSpentCreateDTO } from '../../shared/mappers/spent.mapper';
   styleUrl: './add-spent.component.css',
 })
 export class AddSpentComponent {
+  errorMessage!: string;
+
   constructor(
     private spentService: SpentService,
     private tokenService: TokenService,
@@ -27,7 +29,9 @@ export class AddSpentComponent {
         this.router.navigate(['/inicio']);
       },
       error: (err) => {
-        console.log(err);
+        if (err.status === 403) {
+          this.errorMessage = 'Todos os campos são obrigatórios';
+        }
       },
     });
   };
