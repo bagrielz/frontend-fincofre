@@ -47,12 +47,8 @@ export class UpdateSpentComponent implements OnInit {
     const dto = toSpentUpdateDTO(formValue);
 
     this.spentService.updateSpent(token, dto, id).subscribe({
-      next: (res) => {
-        this.router
-          .navigateByUrl('/', { skipLocationChange: true })
-          .then(() => {
-            this.router.navigate([`/editar-gasto/${res.id}`]);
-          });
+      next: () => {
+        this.router.navigateByUrl('/inicio');
       },
       error: (err) => {
         console.log(err);
