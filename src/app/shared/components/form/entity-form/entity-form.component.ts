@@ -8,6 +8,7 @@ import { SubtitleComponent } from '../../subtitle/subtitle.component';
 import { FieldComponent } from '../field/field.component';
 import { Observable } from 'rxjs';
 import { ButtonConfig } from '../../../models/button-config.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-entity-form',
@@ -25,12 +26,16 @@ export class EntityFormComponent {
   form!: FormGroup;
   formConfig!: FormConfig;
 
+  errorMessage = input<string>();
   inputFormGroup = input.required<string>();
   formWithData = input<boolean>();
   onSubmit = input.required<(formValue: any) => void>();
   dataProvider = input<() => Observable<any>>();
 
-  constructor(private formInitializer: FormInitializerService) {}
+  constructor(
+    private formInitializer: FormInitializerService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     const formKey = this.inputFormGroup();
@@ -55,9 +60,8 @@ export class EntityFormComponent {
   }
 
   onButtonClick(btn: ButtonConfig) {
-    if (btn.text === 'Cancelar') {
-      console.log('cancelou');
-      // Escrever a lógica do cancelamento
+    if (btn.text === 'Voltar') {
+      this.router.navigateByUrl('/inicio');
     }
 
     if (btn.text === 'Atualizar') {

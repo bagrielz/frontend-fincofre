@@ -1,3 +1,17 @@
+@if (spents()?.length === 0) {
+<div role="rowgroup" class="no-spents">
+  <p>
+    Não foram encontrados gastos adicionados. Clique no botão abaixo e adicione
+    o seu primeiro gasto
+  </p>
+  <div>
+    <app-button type="primary" (clicked)="addsNewSpent()">
+      <img src="icons/plus-circle.svg" alt="" />
+      Adicionar novo gasto
+    </app-button>
+  </div>
+</div>
+} @else {
 <div role="rowgroup">
   @for (s of spents(); track trackById(s)) {
   <div role="row" class="table-row">
@@ -21,3 +35,4 @@
   </div>
   }
 </div>
+}

@@ -1,7 +1,7 @@
 <main class="main-container">
   <div class="main-content">
     <app-title [value]="{ text: 'Gastos', highlight: '' }">
-      <app-button type="primary">
+      <app-button type="primary" (clicked)="addsNewSpent()">
         <img src="icons/plus-circle.svg" alt="" />
         Adicionar novo gasto
       </app-button>

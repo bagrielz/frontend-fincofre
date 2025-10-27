@@ -5,6 +5,8 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormInitializerService } from '../../../../core/services/form-initializer.service';
 import { FieldComponent } from '../field/field.component';
 import { FormService } from '../../../../core/services/form.service';
+import { ButtonConfig } from '../../../models/button-config.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-form',
@@ -18,10 +20,12 @@ export class AuthFormComponent {
 
   onSubmit = input.required<(formValue: any) => void>();
   inputFormGroup = input.required<string>();
+  errorMessage = input<string>();
 
   constructor(
     private formInitializer: FormInitializerService,
-    private formService: FormService
+    private formService: FormService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -36,5 +40,15 @@ export class AuthFormComponent {
 
   submitForm() {
     this.onSubmit()(this.form.value);
+  }
+
+  onButtonClick(btn: ButtonConfig) {
+    if (btn.text === 'Voltar') {
+      this.router.navigateByUrl('/login');
+    }
+
+    if (btn.text === 'Atualizar') {
+      this.submitForm();
+    }
   }
 }

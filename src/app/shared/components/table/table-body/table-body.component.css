@@ -1,3 +1,25 @@
+.no-spents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.no-spents p {
+  max-width: 500px;
+  color: var(--color-dark-100);
+  font-weight: var(--font-medium);
+  line-height: 133%;
+}
+
+.no-spents app-button {
+  width: auto;
+  align-self: center;
+}
+
 .table-row {
   display: grid;
   grid-template-columns: 40px repeat(8, 1fr);

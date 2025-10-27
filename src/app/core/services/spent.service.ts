@@ -1,6 +1,6 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, of } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { SpentResponse } from '../../shared/models/spent-response.model';
 import { Spent } from '../../shared/models/spent.model';
@@ -52,6 +52,12 @@ export class SpentService {
         .get<SpentResponse>(`${this.apiUrl}/gastos/listar`, {
           headers,
         })
+        .pipe(
+          catchError((err) => {
+            console.warn('Nenhum gasto encontrado', err);
+            return of({ spents: [], total: 0 });
+          })
+        )
         .subscribe((res) => {
           this.spentsSource.next(res);
         });
@@ -69,9 +75,17 @@ export class SpentService {
         url += `?type=${type}`;
       }
 
-      this.http.get<SpentResponse>(url, { headers }).subscribe((res) => {
-        this.spentsSource.next(res);
-      });
+      this.http
+        .get<SpentResponse>(url, { headers })
+        .pipe(
+          catchError((err) => {
+            console.warn('Nenhum gasto encontrado', err);
+            return of({ spents: [], total: 0 });
+          })
+        )
+        .subscribe((res) => {
+          this.spentsSource.next(res);
+        });
     });
   }
 
@@ -100,5 +114,17 @@ export class SpentService {
     const url = `${this.apiUrl}/gastos/atualizar/${id}`;
 
     return this.http.patch<Spent>(url, data, { headers });
+  }
+
+  deleteSpent(id: number): Observable<Spent> {
+    const token = this.authHelper.getToken();
+    const headers = getHeaders(token);
+
+    if (!id) {
+      console.error('ID não existe');
+    }
+    const url = `${this.apiUrl}/gastos/excluir/${id}`;
+
+    return this.http.delete<Spent>(url, { headers });
   }
 }

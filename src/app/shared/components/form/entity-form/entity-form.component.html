@@ -21,7 +21,7 @@
               <app-button
                 [type]="btn.type"
                 [routerLink]="btn.link"
-                [nativeType]="btn.text === 'Cancelar' ? 'button' : 'submit'"
+                [nativeType]="btn.text === 'Voltar' ? 'button' : 'submit'"
                 (clicked)="onButtonClick(btn)"
               >
                 @if (btn.icon) {
@@ -33,6 +33,10 @@
             } }
           </div>
         </form>
+
+        @if (errorMessage()) {
+        <div class="error">{{ errorMessage() }}</div>
+        }
       </div>
     </div>
   </div>
