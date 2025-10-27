@@ -14,7 +14,7 @@ export function getProfileFormConfig(): FormConfig {
       },
       {
         type: 'secondary',
-        text: 'Cancelar',
+        text: 'Voltar',
       },
     ],
     fields: [
