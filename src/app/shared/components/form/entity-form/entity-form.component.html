@@ -14,6 +14,9 @@
 
         <form [formGroup]="form" (ngSubmit)="submitForm()">
           <app-field [form]="form" [fields]="formConfig.fields" />
+          @if (errorMessage()) {
+          <div class="error">{{ errorMessage() }}</div>
+          }
           <div class="buttons">
             @if (formConfig.buttons) { @for (btn of formConfig.buttons; track
             $index) {
@@ -33,10 +36,6 @@
             } }
           </div>
         </form>
-
-        @if (errorMessage()) {
-        <div class="error">{{ errorMessage() }}</div>
-        }
       </div>
     </div>
   </div>
