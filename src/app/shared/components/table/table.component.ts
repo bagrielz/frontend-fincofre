@@ -32,7 +32,6 @@ export class TableComponent implements OnInit {
     private selectionService: SelectionService
   ) {
     this.spentsResponse$ = this.spentService.spentsResponse$;
-    console.log(this.spentsResponse$);
   }
 
   ngOnInit(): void {
