@@ -115,4 +115,16 @@ export class SpentService {
 
     return this.http.patch<Spent>(url, data, { headers });
   }
+
+  deleteSpent(id: number): Observable<Spent> {
+    const token = this.authHelper.getToken();
+    const headers = getHeaders(token);
+
+    if (!id) {
+      console.error('ID não existe');
+    }
+    const url = `${this.apiUrl}/gastos/excluir/${id}`;
+
+    return this.http.delete<Spent>(url, { headers });
+  }
 }

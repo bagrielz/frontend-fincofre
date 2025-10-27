@@ -17,6 +17,10 @@
   border-radius: 0.625rem;
 }
 
+.without-a-button {
+  padding: 1.65625rem 1rem;
+}
+
 .toast > div {
   display: flex;
   gap: 1.5rem;

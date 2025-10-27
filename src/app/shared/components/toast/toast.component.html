@@ -1,4 +1,4 @@
-<div class="toast">
+<div class="toast" [ngClass]="quantity() !== 1 ? 'without-a-button' : ''">
   <span class="total-text"
     >Total selecionado(s):
     {{ total() | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR" }}</span
@@ -12,11 +12,11 @@
         <img src="icons/edit.svg" alt="" />
         Editar
       </app-button>
-      }
-      <app-button type="danger">
+      <app-button type="danger" (clicked)="deleteClickSpent(spents())">
         <img src="icons/trash.svg" alt="" />
         Excluir
       </app-button>
+      }
     </div>
   </div>
 </div>
