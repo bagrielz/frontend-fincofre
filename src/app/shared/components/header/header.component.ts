@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 import { UserService } from '../../../core/services/user.service';
 import { User } from '../../models/user.model';
-import { TokenService } from '../../../core/services/token.service';
-import { Observable } from 'rxjs';
+import { AuthTokenHelperService } from '../../helpers/auth.helper';
 
 @Component({
   selector: 'app-header',
@@ -20,13 +19,15 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private userService: UserService,
-    private tokenService: TokenService
+    private authHelper: AuthTokenHelperService
   ) {}
 
   ngOnInit(): void {
-    const token = this.tokenService.returnToken();
-    this.userService.get(token).subscribe({
-      next: (user) => (this.user = user),
+    this.authHelper.runIfBrowser(() => {
+      const token = this.authHelper.getToken();
+      this.userService.get(token).subscribe({
+        next: (user) => (this.user = user),
+      });
     });
   }
 
