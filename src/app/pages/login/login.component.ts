@@ -32,6 +32,9 @@ export class LoginComponent {
         if (err.status === 403) {
           this.errorMessage = 'Login ou senha incorretos';
         }
+        if (err.status === 400) {
+          this.errorMessage = 'Todos os campos são obrigatórios';
+        }
       },
     });
   };

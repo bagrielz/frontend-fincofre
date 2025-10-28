@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
+  errorMessage!: string;
+
   constructor(
     private formService: FormService,
     private userService: UserService,
@@ -21,16 +23,16 @@ export class RegisterComponent {
   handleRegisterSubmit = () => {
     const formRegister = this.formService.getRegister();
 
-    if (formRegister?.valid) {
-      const newRegister = formRegister.getRawValue() as User;
-      this.userService.register(newRegister).subscribe({
-        next: () => {
-          this.router.navigate(['/login']);
-        },
-        error: (err) => {
-          console.error('Erro ao realizar cadastro', err);
-        },
-      });
-    }
+    const newRegister = formRegister?.getRawValue() as User;
+    this.userService.register(newRegister).subscribe({
+      next: () => {
+        this.router.navigate(['/login']);
+      },
+      error: (err) => {
+        if (err.status === 400) {
+          this.errorMessage = 'Todos os campos são obrigatórios';
+        }
+      },
+    });
   };
 }
