@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
+import { jwtDecode } from 'jwt-decode';
 
 const KEY = 'token';
 
@@ -18,10 +19,29 @@ export class TokenService {
   }
 
   returnToken(): string | null {
-    return this.storageService.getItem(KEY);
+    const token = this.storageService.getItem(KEY);
+    if (!token) return null;
+
+    if (this.isTokenExpired(token)) {
+      this.deleteToken();
+      return null;
+    }
+
+    return token;
   }
 
   hasToken() {
     return !!this.returnToken();
+  }
+
+  private isTokenExpired(token: string): boolean {
+    try {
+      const decoded: any = jwtDecode(token);
+      const now = Math.floor(Date.now() / 1000);
+      return decoded.exp < now;
+    } catch (error) {
+      console.error('Erro ao decodificar o token:', error);
+      return true;
+    }
   }
 }
