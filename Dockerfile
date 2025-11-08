@@ -1,7 +1,9 @@
 FROM node:20 AS build
 WORKDIR /app
+COPY package*.json ./
+RUN --mount=type=cache,target=/root/.npm \
+    npm ci
 COPY . .
-RUN npm install
 RUN npm run build
 
 FROM nginx:alpine
